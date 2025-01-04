@@ -1,0 +1,10 @@
+*.json
+*.csv
+*.npy
+*.txt
+
+__pycache__/
+*.rdb
+*.pkl
+*.joblib
+*.joblib
