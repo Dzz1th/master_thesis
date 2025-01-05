@@ -24,7 +24,7 @@ logging.basicConfig(
     ]
 )
 
-rate_limiter = TokenRateLimiter(60, 30000000)
+rate_limiter = TokenRateLimiter(150, 30000000)
 
 mgi_openai_key = "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"
 openai_key = "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"
@@ -68,39 +68,62 @@ def get_pairs(texts_1, texts_2):
             pairs.append((texts_1[i], texts_2[j]))
     return pairs
 
+def generate_pairs_dataset(df):
+    neutral_df = df[df['shift'].isna()]
+
+    neutral_neutral_pairs = get_pairs(neutral_df['text'].tolist(), neutral_df['text'].tolist())
+
+    return neutral_neutral_pairs
+
 async def generate_pairs():
     total_tokens = 0
     total_cost = 0
     
     qa_df = pd.read_csv("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_data_labeled.csv")
 
-    dovish_df = qa_df[qa_df['shift'] == 'dovish']
-    hawkish_df = qa_df[qa_df['shift'] == 'hawkish']
-    neutral_df = qa_df[qa_df['shift'].isna()]
 
-    dovish_hawkish_pairs = get_pairs(dovish_df['text'].tolist(), hawkish_df['text'].tolist())
-    dovish_neutral_pairs = get_pairs(dovish_df['text'].tolist(), neutral_df['text'].tolist())
-    hawkish_neutral_pairs = get_pairs(hawkish_df['text'].tolist(), neutral_df['text'].tolist())
+    train_df = qa_df[qa_df['date'] < '2020-01-01']
+    test_df = qa_df[qa_df['date'] >= '2020-01-01']
 
-    pairs = dovish_hawkish_pairs + dovish_neutral_pairs + hawkish_neutral_pairs
-    pairs = random.sample(pairs, 1000)
+    #We generate pairs only for neutral-neutral pairs.
+    #Because we don't really need scoring for hawkish/dovish pairs, if we are certain in the neural labels
+    #So for each pair where we know neutral-neutral pairs, we also know neutral-dovish or neutral-hawkish pair depending on the relation
+    train_pairs = generate_pairs_dataset(train_df) 
 
-    pairs_results = {}
+    train_pairs = random.sample(train_pairs, 300)
 
-    tasks = [compare_transcripts(pairs[i][0], pairs[i][1]) for i in range(len(pairs))]
+    train_pairs_results = {}
+
+    tasks = [compare_transcripts(train_pairs[i][0], train_pairs[i][1]) for i in range(len(train_pairs))]
     
+    logging.info(f"Generating train pairs: from 2011 to 2020")
     # Use tqdm to monitor the progress of the tasks
     results = await tqdm.gather(*tasks, desc="Processing Transcripts", total=len(tasks))
 
     for result in results:
-        pairs_results[json.dumps(result[0])] = result[1]
+        train_pairs_results[json.dumps(result[0])] = result[1]
 
     # Log final statistics
     logging.info(f"Generation completed:")
-    logging.info(f"Total pairs processed: {len(pairs)}")
+    logging.info(f"Total pairs processed: {len(train_pairs)}")
     
-    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/pairs_analysis.json", "w") as f:
-        json.dump(pairs_results, f)
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/train_pairs_analysis.json", "w") as f:
+        json.dump(train_pairs_results, f)
+
+    test_pairs = generate_pairs_dataset(test_df)
+    test_pairs = random.sample(test_pairs, 300)
+
+    test_pairs_results = {}
+
+    logging.info(f"Generating test pairs: from 2020 to 2024")
+    test_tasks = [compare_transcripts(test_pairs[i][0], test_pairs[i][1]) for i in range(len(test_pairs))]
+    test_results = await tqdm.gather(*test_tasks, desc="Processing Transcripts", total=len(test_tasks))
+
+    for result in test_results:
+        test_pairs_results[json.dumps(result[0])] = result[1]
+
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/test_pairs_analysis.json", "w") as f:
+        json.dump(test_pairs_results, f)
 
 
 class FilterResponse(BaseModel):
@@ -137,19 +160,30 @@ async def filter_pairs():
     total_tokens = 0
     total_cost = 0
     
-    pairs_results = json.load(open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/pairs_analysis.json"))
-    pairs_list = [(json.loads(key), value) for key, value in pairs_results.items()]
-    analysis_list = [pairs_list[i][1] for i in range(len(pairs_list))]
-    tasks = [get_score(analysis_list[i]) for i in range(len(analysis_list))]
+    train_pairs_results = json.load(open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/train_pairs_analysis.json"))
+    train_pairs_list = [(json.loads(key), value) for key, value in train_pairs_results.items()]
+    train_analysis_list = [train_pairs_list[i][1] for i in range(len(train_pairs_list))]
+    tasks = [get_score(train_analysis_list[i]) for i in range(len(train_analysis_list))]
 
     results = await tqdm.gather(*tasks, desc="Processing Transcripts", total=len(tasks))
 
     for i in range(len(results)):
-        pairs_results[json.dumps(pairs_list[i][0])] = results[i]
+        train_pairs_results[json.dumps(train_pairs_list[i][0])] = results[i]
 
-    
-    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/pairs_ranking.json", "w") as f:
-        json.dump(pairs_results, f)
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/train_pairs_ranking.json", "w") as f:
+        json.dump(train_pairs_results, f)
+
+    test_pairs_results = json.load(open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/test_pairs_analysis.json"))
+    test_pairs_list = [(json.loads(key), value) for key, value in test_pairs_results.items()]
+    test_analysis_list = [test_pairs_list[i][1] for i in range(len(test_pairs_list))]
+    test_tasks = [get_score(test_analysis_list[i]) for i in range(len(test_analysis_list))]
+    test_results = await tqdm.gather(*test_tasks, desc="Processing Transcripts", total=len(test_tasks))
+
+    for i in range(len(test_results)):
+        test_pairs_results[json.dumps(test_pairs_list[i][0])] = test_results[i]
+
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/test_pairs_ranking.json", "w") as f:
+        json.dump(test_pairs_results, f)
 
 if __name__ == "__main__":
     asyncio.run(filter_pairs())

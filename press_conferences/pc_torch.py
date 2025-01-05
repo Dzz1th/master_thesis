@@ -10,7 +10,13 @@ from torch.utils.data import Dataset, DataLoader
 
 from sklearn.model_selection import ParameterGrid
 
-from models.models import TripletLinearClassifier, TripletLinearClassifier2Layers
+from models.models import TripletLinearClassifier
+from models.loss import CustomRankingLoss
+
+from data_loading import (load_pairs_data, 
+                         load_pairs_data_stratified, 
+                         load_triplets_data,
+                         load_pre_splited_pairs)
 
 import time 
 import logging
@@ -27,94 +33,11 @@ embeddings = OpenAIEmbeddings(
     openai_api_key = openai_key
 )
 
-def get_label_distribution(labels):
-    labels_ = np.array(labels)
-    return {
-        "1's": labels_[labels_ == 1].shape[0] / labels_.shape[0],
-        "0.5's": labels_[labels_ == 0.5].shape[0] / labels_.shape[0],
-        "0's": labels_[labels_ == 0].shape[0] / labels_.shape[0],
-        "-1's": labels_[labels_ == -1].shape[0] / labels_.shape[0],
-        "-0.5's": labels_[labels_ == -0.5].shape[0] / labels_.shape[0]
-    }
-
 def truncate_pairs(pairs, truncate_size):
     return [(pair[0][:truncate_size], pair[1][:truncate_size]) for pair in pairs]
 
-def load_pairs_data_stratified(test_size: float = 0.25, random_seed = None):
-    """
-        This version of data loading read all the pairs and then splits them into train and test with stratification.
-
-        Potential issue with this approach is that we will have same objects (but not same pairs) in train and test
-            (altough we can have x1 < x2 < x3, and x1<x3 and x2<x3 in train, and x1<x3 in test).
-        This could lead to the leakage in data and overfitting.
-    """
-    
-    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/text_embeddings.json", "r") as f:
-        data = json.load(f)
-
-    embeddings = data['embeddings']
-    embeddings = {int(key): value for key, value in embeddings.items()}
-
-    text_idxs = data['text_idxs']
-    text_idxs = {key: int(value) for key, value in text_idxs.items()} 
-    
-    pairs_ranking = data['pairs_ranking']
-    pairs_ranking = {tuple(json.loads(key)): value for key, value in pairs_ranking.items()}
-
-    pairs = list(pairs_ranking.keys())
-    pairs = [(embeddings[pair[0]], embeddings[pair[1]]) for pair in pairs]
-    labels = list(pairs_ranking.values())
-
-    train_pairs, test_pairs, train_labels, test_labels = train_test_split(pairs, labels, test_size=test_size, stratify=labels, random_state=random_seed)
-
-    train_label_distribution = get_label_distribution(train_labels)
-    test_label_distribution = get_label_distribution(test_labels)
-
-    logging.info(f"Train label distribution: {train_label_distribution}")
-    logging.info(f"Test label distribution: {test_label_distribution}")
-
-    return train_pairs, train_labels, test_pairs, test_labels
-
-
-def load_pairs_data(test_size: float = 0.25):
-    """
-        Load ranked pairs of texts and split into train and test.
-        
-        Returns pairs of the embeddings and their respective rankings.
-    """
-    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/text_embeddings.json", "r") as f:
-        data = json.load(f)
-
-    embeddings = data['embeddings']
-    embeddings = {int(key): value for key, value in embeddings.items()}
-
-    text_idxs = data['text_idxs']
-    text_idxs = {key: int(value) for key, value in text_idxs.items()} 
-    
-    pairs_ranking = data['pairs_ranking']
-
-    pairs_ranking = {tuple(json.loads(key)): value for key, value in pairs_ranking.items()}
-
-    train_idxs, test_idxs = train_test_split(list(text_idxs.values()), test_size=test_size)
-
-    train_pairs = {key: value for key, value in pairs_ranking.items() if key[0] in train_idxs and key[1] in train_idxs}
-    test_pairs = {key: value for key, value in pairs_ranking.items() if key[0] in test_idxs and key[1] in test_idxs}
-
-    logging.info(f"Train pairs: {len(train_pairs)}")
-    logging.info(f"Test pairs: {len(test_pairs)}")
-
-    train_embeddings = [(embeddings[key[0]], embeddings[key[1]]) for key in train_pairs.keys()]
-    test_embeddings = [(embeddings[key[0]], embeddings[key[1]]) for key in test_pairs.keys()]
-    train_labels = [value for value in train_pairs.values()]   
-    test_labels = [value for value in test_pairs.values()]
-
-    train_label_distribution = get_label_distribution(train_labels)
-    test_label_distribution = get_label_distribution(test_labels)
-    
-    logging.info(f"Train label distribution: {train_label_distribution}")
-    logging.info(f"Test label distribution: {test_label_distribution}")
-    
-    return train_embeddings, train_labels, test_embeddings, test_labels
+def truncate_triplets(triplets, truncate_size):
+    return [(triplet[0][:truncate_size], triplet[1][:truncate_size], triplet[2][:truncate_size]) for triplet in triplets]
 
 
 def pca_pairs(pairs: List[tuple], n_components: int):
@@ -131,6 +54,14 @@ def pca_transform_pairs(pairs: List[tuple], pca: PCA):
     transformed_pairs = [(first_half[i], second_half[i]) for i in range(len(pairs))]
 
     return transformed_pairs
+
+def pca_transform_triplets(triplets, pca):
+    all_embeddings = np.array([triplet[0] for triplet in triplets] + [triplet[1] for triplet in triplets] + [triplet[2] for triplet in triplets])
+    transformed_triplets = pca.transform(all_embeddings)
+    hawkish, neutral, dovish = transformed_triplets[:len(triplets)], transformed_triplets[len(triplets):len(triplets)*2], transformed_triplets[len(triplets)*2:]
+    transformed_triplets = [(hawkish[i], neutral[i], dovish[i]) for i in range(len(triplets))]
+
+    return transformed_triplets
 
 def ranking_loss(f_hawkish, f_dovish, f_anchor, margin=1.0):
     loss = torch.relu(margin - (f_hawkish - f_anchor)) + torch.relu(margin - (f_dovish - f_anchor))
@@ -194,7 +125,7 @@ def analyze_triplet_errors(predictions):
     logging.info(f"Neutral <= Dovish: {neutral_dovish}/{total_triplets} ({neutral_dovish/total_triplets:.2%})")
     logging.info(f"Hawkish <= Dovish: {hawkish_dovish}/{total_triplets} ({hawkish_dovish/total_triplets:.2%})")
 
-def score_pairs(scores, labels, padding=0.2):
+def score_pairs(scores, labels):
     """
         Scores - tensor of shape (2, n) of 2 scores of the first and second texts in pairs
         Labels - tensor of shape (n) of labels for the pairs
@@ -205,15 +136,15 @@ def score_pairs(scores, labels, padding=0.2):
     # Check conditions for each label
     # For label == 0.5 or -0.5
     mask_05 = (labels == 0.5) | (labels == -0.5)
-    accurate[mask_05] = ((diff * labels.sign())[mask_05] >= 0.5 - padding) & ((diff * labels.sign())[mask_05] <= 1.0)
+    accurate[mask_05] = ((diff * labels.sign())[mask_05] >= 0) & ((diff * labels.sign())[mask_05] <= 1.0)
     
     # For label == 1 or -1
     mask_1 = (labels == 1) | (labels == -1)
-    accurate[mask_1] = (diff * labels.sign())[mask_1] > 1.0
+    accurate[mask_1] = (diff * labels.sign())[mask_1] >= 1.0
     
     # For label == 0
     mask_0 = (labels == 0)
-    accurate[mask_0] = (diff[mask_0] >= -0.5+padding) & (diff[mask_0] <= 0.5-padding)
+    accurate[mask_0] = (diff[mask_0] >= -0.5) & (diff[mask_0] <= 0.5)
     
     # Compute accuracy as the mean of accurate pairs
     accuracy = accurate.float().mean().item()
@@ -245,7 +176,7 @@ def analyze_pair_errors(scores, labels, padding=0.25):
     # Check conditions for each label
     for i in range(len(labels)):
         if labels[i] in [0.5, -0.5]:
-            if diff[i] * labels[i].sign() < 0:
+            if diff[i] * labels[i].sign() < 0 or diff[i] * labels[i].sign() > 1:
                 hard_05 += 1
                 #logging.info(f"Pair {i} with label {labels[i]} hard error: diff = {diff[i].item()}")
             else:
@@ -254,7 +185,7 @@ def analyze_pair_errors(scores, labels, padding=0.25):
                     #logging.info(f"Pair {i} with label {labels[i]} soft error: diff = {diff[i].item()}")
         
         elif labels[i] in [1, -1]:
-            if diff[i] * labels[i].sign() < 0.5:
+            if diff[i] * labels[i].sign() < 0.0:
                 hard_1 += 1
                 #logging.info(f"Pair {i} with label {labels[i]} hard error: diff = {diff[i].item()}")
             else:
@@ -295,25 +226,18 @@ def analyze_pair_errors(scores, labels, padding=0.25):
 
 
 class TripletDataset(Dataset):
-    def __init__(self, triplets, labels, truncate_size=2048):
+    def __init__(self, triplets):
         self.triplets = triplets
-        self.labels = labels
-        self.truncate_size = truncate_size
 
     def __len__(self):
         return len(self.triplets)
 
     def __getitem__(self, idx):
         hawkish, neutral, dovish = self.triplets[idx]
-        if self.truncate_size != -1:
-            hawkish = hawkish[:self.truncate_size]
-            neutral = neutral[:self.truncate_size]
-            dovish = dovish[:self.truncate_size]
-        label = self.labels[idx]
+
         return (torch.tensor(hawkish, dtype=torch.float32),
                 torch.tensor(neutral, dtype=torch.float32),
-                torch.tensor(dovish, dtype=torch.float32),
-                torch.tensor(label, dtype=torch.float32))
+                torch.tensor(dovish, dtype=torch.float32))
     
 class PairDataset(Dataset):
     def __init__(self, pairs, labels):
@@ -331,63 +255,11 @@ class PairDataset(Dataset):
                 torch.tensor(second, dtype=torch.float32),
                 torch.tensor(label, dtype=torch.float32))
     
-class CustomRankingLoss(nn.Module):
-    """
-        This loss works as the following:
-            1. For labels 1 and -1, it computes the standart margin ranking loss:
-                loss = max(0, margin - (f_1 - f_2)) - means we penalize if the difference is lower than 1.
-            2. For labels 0.5 and -0.5, we penalize if the difference is outside of the range 0.5 +- self.threshold :
-                loss = max(0, diff - (0.5 + self.padding)) + max(0, (0.5 - self.padding) - diff)
-            3. If the label is 0, we penalize if the difference is bigger than threshold:
-                loss = max(0, (-0.5 + self.padding) - diff) + max(0, diff - (0.5 - self.padding))
 
-            2. If the label is 0, it means that we want this pair to be close to each other, and we penalize it if the difference is bigger than threshold.
-    """
-
-    def __init__(self, padding=0.2, loss_weights=[1, 1]):
-        """
-            Args:
-                padding - padding from the 0.5 when we start to penalize incorrect scoring
-                loss_weights - weights for the loss of the different types of labels
-        """
-
-        super(CustomRankingLoss, self).__init__()
-        self.padding = padding
-        self.loss_weights = loss_weights
-
-    def forward(self, f_first, f_second, labels):
-        """
-            f_first, f_second - tensors of scores of the first and second texts in pairs
-            labels - margins for the first and second texts that obtained through LLM model
-
-        """
-        diff = f_first - f_second
-        loss = torch.zeros_like(labels)
-        diff = diff * labels.sign()
-
-
-        mask_05 = (labels == 0.5) | (labels == -0.5)
-        loss_05 = torch.relu(diff - 1) + torch.relu((0.5 - self.padding) - diff)
-
-        mask_1 = (labels == 1) | (labels == -1)
-        loss_1 = torch.relu(1 - diff)
-
-        mask_0 = (labels == 0)
-        loss_0 = torch.relu((-0.5 + self.padding) - diff) + torch.relu(diff - (0.5 - self.padding))
-
-        loss = self.loss_weights[0] * loss_05[mask_05].sum() + self.loss_weights[1] * loss_1[mask_1].sum() + loss_0[mask_0].sum()
-
-        return loss
-
-
-def create_dataloaders(train_pairs, train_labels, test_pairs, test_labels):
-    train_dataset = PairDataset(train_pairs, train_labels)
-    test_dataset = PairDataset(test_pairs, test_labels)
-
-    train_loader = DataLoader(train_dataset, batch_size=len(train_dataset), shuffle=False)
-    test_loader = DataLoader(test_dataset, batch_size=len(test_dataset), shuffle=False)
-
-    return train_loader, test_loader
+def create_dataloader(pairs, labels):
+    dataset = PairDataset(pairs, labels)
+    loader = DataLoader(dataset, batch_size=len(dataset), shuffle=False)
+    return loader
 
 def train_model_with_early_stopping(train_loader, test_loader,
                                     input_dim,
@@ -395,10 +267,9 @@ def train_model_with_early_stopping(train_loader, test_loader,
                                     lr=1e-3,
                                     patience=300,
                                     n_layers=1,
-                                    loss_padding=0.25,
                                     loss_weights=[1, 1]):
     model = TripletLinearClassifier(input_dim=input_dim, num_layers=n_layers)
-    criterion = CustomRankingLoss(padding=loss_padding, loss_weights=loss_weights)
+    criterion = CustomRankingLoss(loss_weights=loss_weights)
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
     best_loss = float('inf')
@@ -431,7 +302,7 @@ def train_model_with_early_stopping(train_loader, test_loader,
                 val_loss += criterion(f_first, f_second, label)
 
             # Log the losses
-            logging.info(f"Epoch {epoch + 1}, Train Loss: {total_loss:.4f}, Validation Loss: {val_loss:.4f}")
+            #logging.info(f"Epoch {epoch + 1}, Train Loss: {total_loss:.4f}, Validation Loss: {val_loss:.4f}")
 
             # Early stopping
             if val_loss < best_loss:
@@ -468,8 +339,6 @@ def compute_metrics(model, data_loader):
 
     score_acc = score_pairs(all_predictions, all_labels)
 
-    logging.info(f"Score Accuracy: {score_acc:.4f}")
-
     errors_analysis = analyze_pair_errors(all_predictions, all_labels)
 
     return {
@@ -477,10 +346,13 @@ def compute_metrics(model, data_loader):
         **errors_analysis
     }
 
+
 def pipeline(
         train_pairs: List[tuple], 
         train_labels: List[int],
-        test_pairs: List[tuple], 
+        val_pairs: List[tuple], 
+        val_labels: List[int],
+        test_pairs: List[tuple],
         test_labels: List[int],
         pca_components: int = 500,
         truncate_size: int = 2048,
@@ -488,42 +360,63 @@ def pipeline(
         patience=100,
         lr=3e-2,
         n_layers=1,
-        loss_padding=0.25,
-        loss_weights=[1, 1]):
-    
+        loss_weights=[1, 1],):
     
     train_pairs = truncate_pairs(train_pairs, truncate_size)
+    val_pairs = truncate_pairs(val_pairs, truncate_size)
     test_pairs = truncate_pairs(test_pairs, truncate_size)
+    
+    input_dim = truncate_size
 
     if pca_components is not None:
         pca = pca_pairs(train_pairs, n_components=pca_components)
         train_pairs = pca_transform_pairs(train_pairs, pca)
+        val_pairs = pca_transform_pairs(val_pairs, pca)
         test_pairs = pca_transform_pairs(test_pairs, pca)
         input_dim = pca_components
 
-    train_loader, test_loader = create_dataloaders(train_pairs, train_labels, test_pairs, test_labels)
-    model = train_model_with_early_stopping(train_loader, test_loader, 
+    train_loader = create_dataloader(train_pairs, train_labels)
+    val_loader = create_dataloader(val_pairs, val_labels)
+    test_loader = create_dataloader(test_pairs, test_labels)
+
+    model = train_model_with_early_stopping(train_loader, val_loader, 
                                             input_dim=input_dim,
                                             epochs=epochs, 
                                             lr=lr,
                                             patience=patience, 
-                                            n_layers=n_layers, 
-                                            loss_padding=loss_padding,
+                                            n_layers=n_layers,
                                             loss_weights=loss_weights)
-    metrics = compute_metrics(model, test_loader)
+    
+    val_metrics = compute_metrics(model, val_loader)
 
-    return metrics
+    logging.info(f"Validation Accuracy: {val_metrics['score_acc']:.4f}")
+    logging.info(f"Validation Hard Errors: {val_metrics['hard_05']}, {val_metrics['hard_1']}, {val_metrics['hard_0']}")
+    logging.info(f"Validation Soft Errors: {val_metrics['soft_05']}, {val_metrics['soft_1']}, {val_metrics['soft_0']}")
 
-training_config = {
-    "pca_components": 800, 
-    "truncate_size": 1600,
-    "epochs": 2500,
-    "patience": 200,
-    "lr": 1e-2,
-    "n_layers": 1, 
-    "loss_padding": 0.0,
-    "loss_weights": [1, 1]
-}
+    test_metrics = compute_metrics(model, test_loader)
+    logging.info(f"Test Accuracy: {test_metrics['score_acc']:.4f}")
+    logging.info(f"Test Hard Errors: {test_metrics['hard_05']}, {test_metrics['hard_1']}, {test_metrics['hard_0']}")
+    logging.info(f"Test Soft Errors: {test_metrics['soft_05']}, {test_metrics['soft_1']}, {test_metrics['soft_0']}")
+
+
+    return model, val_metrics,test_metrics
+
+def predict_triplets(triplets, model):
+    hawkish = [triplet[0] for triplet in triplets]
+    dovish = [triplet[1] for triplet in triplets]
+    anchor = [triplet[2] for triplet in triplets]
+
+    hawkish = torch.tensor(hawkish, dtype=torch.float32)
+    dovish = torch.tensor(dovish, dtype=torch.float32)
+    anchor = torch.tensor(anchor, dtype=torch.float32)
+
+    hawkish_scores = model(hawkish)
+    dovish_scores = model(dovish)
+    anchor_scores = model(anchor)
+
+    results = torch.stack((hawkish_scores, anchor_scores, dovish_scores), dim=0)
+
+    return results
 
 base_config = {
     "pca_components": None,
@@ -545,21 +438,54 @@ console_handler.setFormatter(formatter)
 # Add the console handler to the root logger
 logging.getLogger().addHandler(console_handler)
 
+base_parameters = {
+    "epochs": 3000,
+    "patience": 200,
+    "loss_weights": [1, 1],
+}
 
 parameters_grid = {
-    'truncate_size': [512, 1024, 2048, 3072],
-    'lr': [1e-3, 5e-3, 1e-2, 3e-2],
+    'pca_components': [None, 300, 600],
+    'truncate_size': [1024, 2048, 3072],
+    'lr': [1e-2, 3e-2],
     'n_layers': [1, 2],
-    'loss_padding': [0.2, 0.25, 0.4],
+}
+
+
+training_config = {
+    "pca_components": 600, 
+    "truncate_size": 2048,
+    "epochs": 3000,
+    "patience": 200,
+    "lr": 2e-2,
+    "n_layers": 1,
+    "loss_weights": [1, 1] #weigth of 0.5 loss and 1.0 loss
 }
 
 grid = ParameterGrid(parameters_grid)
 
 if __name__ == "__main__":
     # Load data
-    for seed in range(10):
-        train_pairs, train_labels, test_pairs, test_labels = load_pairs_data_stratified(test_size=0.2, random_seed=seed)
-        metrics = pipeline(train_pairs, train_labels, test_pairs, test_labels, **training_config)
+    train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels = load_pre_splited_pairs()
+
+    results = {}
+    for params in tqdm(grid):
+        model, val_metrics, test_metrics = pipeline(train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels, **params, **base_parameters)
+        logging.info(f"Params: {params}")
+        logging.info(f"Validation Metrics: {val_metrics}")
+        logging.info(f"Test Metrics: {test_metrics}")
+
+        results[params] = {
+            "val_metrics": val_metrics,
+            "test_metrics": test_metrics
+        }
+
+    with open("grid_search.json", "w") as f:
+        json.dump(results, f)
+
+
+
+
 
 
 # 0.55, 38/153
