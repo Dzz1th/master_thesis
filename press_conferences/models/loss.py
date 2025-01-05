@@ -23,13 +23,12 @@ class CustomRankingLoss(nn.Module):
         super(CustomRankingLoss, self).__init__()
         self.loss_weights = loss_weights
 
-    def forward(self, f_first, f_second, labels):
+    def forward(self, diff, labels):
         """
             f_first, f_second - tensors of scores of the first and second texts in pairs
             labels - margins for the first and second texts that obtained through LLM model
 
         """
-        diff = f_first - f_second
         loss = torch.zeros_like(labels)
         diff = diff * labels.sign()
 

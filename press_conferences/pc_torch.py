@@ -1,4 +1,5 @@
 import json
+import typing as t
 from tqdm import tqdm 
 import numpy as np 
 import torch
@@ -10,7 +11,7 @@ from torch.utils.data import Dataset, DataLoader
 
 from sklearn.model_selection import ParameterGrid
 
-from models.models import TripletLinearClassifier
+from models.models import TripletLinearClassifier, PairwiseLinearClassifier
 from models.loss import CustomRankingLoss
 
 from data_loading import (load_pairs_data, 
@@ -127,10 +128,10 @@ def analyze_triplet_errors(predictions):
 
 def score_pairs(scores, labels):
     """
-        Scores - tensor of shape (2, n) of 2 scores of the first and second texts in pairs
+        Scores - tensor of shape (n) of the difference between the first and second texts in pairs
         Labels - tensor of shape (n) of labels for the pairs
     """
-    diff = scores[0] - scores[1]
+    diff = scores
     accurate = torch.zeros_like(labels, dtype=torch.bool)
     
     # Check conditions for each label
@@ -156,12 +157,11 @@ def analyze_pair_errors(scores, labels, padding=0.25):
     Analyze errors in pair scoring and print misclassified types.
     
     Args:
-    - x1: Tensor of scores for the first element in each pair.
-    - x2: Tensor of scores for the second element in each pair.
-    - labels: Tensor of labels indicating the desired relationship between x1 and x2.
+        scores - tensor of shape (n) of the difference between the first and second texts in pairs
+        labels - tensor of shape (n) of the labels for the pairs
     """
     # Calculate the difference
-    diff = scores[0] - scores[1]
+    diff = scores
 
     #Hard Errors
     hard_05 = 0
@@ -267,8 +267,14 @@ def train_model_with_early_stopping(train_loader, test_loader,
                                     lr=1e-3,
                                     patience=300,
                                     n_layers=1,
-                                    loss_weights=[1, 1]):
-    model = TripletLinearClassifier(input_dim=input_dim, num_layers=n_layers)
+                                    loss_weights=[1, 1],
+                                    model_type: t.Literal['default', 'pairwise'] = 'default'):
+    
+    if model_type == 'default':
+        model = TripletLinearClassifier(input_dim=input_dim, num_layers=n_layers)
+    elif model_type == 'pairwise':
+        model = PairwiseLinearClassifier(input_dim=input_dim, n_layers=n_layers)
+
     criterion = CustomRankingLoss(loss_weights=loss_weights)
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
@@ -281,10 +287,15 @@ def train_model_with_early_stopping(train_loader, test_loader,
         for batch in train_loader:
             first, second, label = batch # dataset of pair and label
 
-            f_first = model(first)
-            f_second = model(second)
+            if model_type == 'default':
+                f_first = model(first)
+                f_second = model(second)
+                diff = f_first - f_second
 
-            loss = criterion(f_first, f_second, label)
+            elif model_type == 'pairwise':
+                diff = model(torch.cat((first, second), dim=1))
+
+            loss = criterion(diff, label)
             total_loss += loss
             loss.backward()
             optimizer.step()
@@ -296,13 +307,18 @@ def train_model_with_early_stopping(train_loader, test_loader,
             val_loss = 0
             for batch in test_loader:
                 first, second, label = batch
-                f_first = model(first)
-                f_second = model(second)
+                if model_type == 'default':
+                    f_first = model(first)
+                    f_second = model(second)
+                    diff = f_first - f_second
 
-                val_loss += criterion(f_first, f_second, label)
+                elif model_type == 'pairwise':
+                    diff = model(torch.cat((first, second), dim=1))
+
+                val_loss += criterion(diff, label)
 
             # Log the losses
-            #logging.info(f"Epoch {epoch + 1}, Train Loss: {total_loss:.4f}, Validation Loss: {val_loss:.4f}")
+            logging.info(f"Epoch {epoch + 1}, Train Loss: {total_loss:.4f}, Validation Loss: {val_loss:.4f}")
 
             # Early stopping
             if val_loss < best_loss:
@@ -319,7 +335,7 @@ def train_model_with_early_stopping(train_loader, test_loader,
     model.load_state_dict(best_model)
     return model
 
-def compute_metrics(model, data_loader):
+def compute_metrics(model, data_loader, model_type: t.Literal['default', 'pairwise'] = 'default'):
     model.eval()
     all_predictions = []
     all_labels = []
@@ -327,14 +343,19 @@ def compute_metrics(model, data_loader):
     with torch.no_grad():
         for batch in data_loader:
             first, second, label = batch
-            f_first = model(first)
-            f_second = model(second)
+            if model_type == 'default':
+                f_first = model(first)
+                f_second = model(second)
+                diff = f_first - f_second
 
-            predictions = torch.stack((f_first, f_second), dim=0)
+            elif model_type == 'pairwise':
+                diff = model(torch.cat((first, second), dim=1))
+
+            predictions = diff
             all_predictions.append(predictions)
             all_labels.append(label)
 
-    all_predictions = torch.cat(all_predictions, dim=1)
+    all_predictions = torch.cat(all_predictions, dim=0)
     all_labels = torch.cat(all_labels)
 
     score_acc = score_pairs(all_predictions, all_labels)
@@ -354,6 +375,7 @@ def pipeline(
         val_labels: List[int],
         test_pairs: List[tuple],
         test_labels: List[int],
+        model_type: t.Literal['default', 'pairwise'] = 'default',
         pca_components: int = 500,
         truncate_size: int = 2048,
         epochs=2500, 
@@ -385,15 +407,16 @@ def pipeline(
                                             lr=lr,
                                             patience=patience, 
                                             n_layers=n_layers,
-                                            loss_weights=loss_weights)
+                                            loss_weights=loss_weights,
+                                            model_type=model_type)
     
-    val_metrics = compute_metrics(model, val_loader)
+    val_metrics = compute_metrics(model, val_loader, model_type=model_type)
 
     logging.info(f"Validation Accuracy: {val_metrics['score_acc']:.4f}")
     logging.info(f"Validation Hard Errors: {val_metrics['hard_05']}, {val_metrics['hard_1']}, {val_metrics['hard_0']}")
     logging.info(f"Validation Soft Errors: {val_metrics['soft_05']}, {val_metrics['soft_1']}, {val_metrics['soft_0']}")
 
-    test_metrics = compute_metrics(model, test_loader)
+    test_metrics = compute_metrics(model, test_loader, model_type=model_type)
     logging.info(f"Test Accuracy: {test_metrics['score_acc']:.4f}")
     logging.info(f"Test Hard Errors: {test_metrics['hard_05']}, {test_metrics['hard_1']}, {test_metrics['hard_0']}")
     logging.info(f"Test Soft Errors: {test_metrics['soft_05']}, {test_metrics['soft_1']}, {test_metrics['soft_0']}")
@@ -446,19 +469,20 @@ base_parameters = {
 
 parameters_grid = {
     'pca_components': [None, 300, 600],
-    'truncate_size': [1024, 2048, 3072],
+    'truncate_size': [1024, 2048],
     'lr': [1e-2, 3e-2],
     'n_layers': [1, 2],
 }
 
 
 training_config = {
-    "pca_components": 600, 
-    "truncate_size": 2048,
-    "epochs": 3000,
-    "patience": 200,
-    "lr": 2e-2,
-    "n_layers": 1,
+    'model_type': 'pairwise',
+    "pca_components": None, 
+    "truncate_size": 3072,
+    "epochs": 1500,
+    "patience": 100,
+    "lr": 1e-2,
+    "n_layers": 2,
     "loss_weights": [1, 1] #weigth of 0.5 loss and 1.0 loss
 }
 
@@ -466,22 +490,23 @@ grid = ParameterGrid(parameters_grid)
 
 if __name__ == "__main__":
     # Load data
-    train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels = load_pre_splited_pairs()
+    train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels = load_pre_splited_pairs(validation_size=0.25)
 
-    results = {}
-    for params in tqdm(grid):
-        model, val_metrics, test_metrics = pipeline(train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels, **params, **base_parameters)
-        logging.info(f"Params: {params}")
-        logging.info(f"Validation Metrics: {val_metrics}")
-        logging.info(f"Test Metrics: {test_metrics}")
+    model, val_metrics, test_metrics = pipeline(train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels, **training_config)
+    # results = {}
+    # for params in tqdm(grid):
+    #     model, val_metrics, test_metrics = pipeline(train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels, **params, **base_parameters)
+    #     logging.info(f"Params: {params}")
+    #     logging.info(f"Validation Metrics: {val_metrics}")
+    #     logging.info(f"Test Metrics: {test_metrics}")
 
-        results[params] = {
-            "val_metrics": val_metrics,
-            "test_metrics": test_metrics
-        }
+    #     results[json.dumps(params)] = {
+    #         "val_metrics": val_metrics,
+    #         "test_metrics": test_metrics
+    #     }
 
-    with open("grid_search.json", "w") as f:
-        json.dump(results, f)
+    #     with open("grid_search.json", "w") as f:
+    #         json.dump(results, f)
 
 
 

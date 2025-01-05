@@ -1,3 +1,5 @@
+import typing as t
+
 import torch
 import torch.nn as nn
 
@@ -20,10 +22,6 @@ class TripletLinearClassifier(nn.Module):
             x = layer(x)
 
         return x.squeeze(-1)  # Output a scalar for each input
-    
-
-
-    
 
 class TripletLinearClassifier2Layers(nn.Module):
     def __init__(self, input_dim):
@@ -37,3 +35,22 @@ class TripletLinearClassifier2Layers(nn.Module):
     def forward(self, x):
         x = self.layers(x)
         return x.squeeze(-1)  # Output a scalar for each input
+    
+class PairwiseLinearClassifier(nn.Module):
+    def __init__(self, input_dim, n_layers: t.Literal[1, 2]):
+        super(PairwiseLinearClassifier, self).__init__()
+        
+        if n_layers == 1:
+            self.layer = nn.Sequential(
+                nn.Linear(input_dim * 2, 1)
+            )
+        elif n_layers == 2:
+            self.layer = nn.Sequential(
+                nn.Linear(input_dim * 2, input_dim),
+                nn.ReLU(),
+                nn.Linear(input_dim, 1)
+            )
+
+    def forward(self, x):
+        x = self.layer(x)
+        return x.squeeze(-1)
