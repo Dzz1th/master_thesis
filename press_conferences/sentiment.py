@@ -1,5 +1,6 @@
 import pandas as pd 
 import re
+from collections import defaultdict
 import typing as t
 import numpy as np
 import os
@@ -12,6 +13,7 @@ from utils import TokenRateLimiter
 from utils import find_all_cycles, create_graph_from_pairs, remove_cycles
 import logging 
 import tiktoken
+import matplotlib.pyplot as plt
 from tqdm.asyncio import tqdm as tqdm_async
 from pydantic import BaseModel, Field
 
@@ -311,8 +313,12 @@ async def rank_pair(statements1, statements2, limit_rates = False):
     tokens_needed = len(tiktoken.encoding_for_model("gpt-4o").encode(prompt))
     if limit_rates:
         await rate_limiter.wait_for_token_availability(tokens_needed)
-    response = await ranking_chat.ainvoke(prompt)
-    return response.result
+    try:
+        response = await ranking_chat.ainvoke(prompt)
+        return response.result
+    except Exception as e:
+        print(f"Error ranking pair: {e}") 
+        return 1 #We will return 0 when we will have a model with multiple outputs
     
 async def rank_press_conferences(pairs: t.List[tuple[str, str]], limit_rates = False) -> t.List[str]:
     tasks = [rank_pair(pair[0], pair[1], limit_rates) for pair in pairs]
@@ -529,7 +535,13 @@ def train_second_stage_model(pairs_diffs: np.ndarray, xgb_diffs: np.ndarray, sec
         print(f"Epoch {epoch + 1}/{num_epochs}, Average Loss: {epoch_loss / len(pairs_diffs):.4f}")
 
     return w
-    
+
+def text_to_index_pairs(pairs, df):
+    index_pairs = []
+    for pair in pairs:
+        index_pairs.append((df[df['sentiment_summary'] == pair[0]].index[0], df[df['sentiment_summary'] == pair[1]].index[0])) 
+    return index_pairs
+
 def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     np.random.seed(42)
     random.seed(42)
@@ -592,8 +604,8 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
         train_pairs, train_ranks = prune_cycles(train_pairs, train_ranks)
         val_pairs, val_ranks = prune_cycles(val_pairs, val_ranks)
 
-        train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=True)
-        val_first_features, val_second_features = data_pipeline(train_df, val_pairs, "val_embeddings", exclude_embeddings=True, forget_embeddings=True) 
+        train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=False)
+        val_first_features, val_second_features = data_pipeline(train_df, val_pairs, "val_embeddings", exclude_embeddings=True, forget_embeddings=False) 
 
         dbtrain = data_to_xgboost_format(train_first_features, train_second_features, train_ranks)
         dbval = data_to_xgboost_format(val_first_features, val_second_features, val_ranks)
@@ -606,10 +618,11 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
         params = {
             'max_depth': 3,
             'eval_metric': 'error',
-            'objective': 'rank:pairwise'
+            'objective': 'rank:pairwise',
+            'random_state': 42
         }
 
-        ranker = xgb.train(params, dbtrain, num_rounds, watchlist)
+        ranker = xgb.train(params, dbtrain, num_rounds, watchlist, early_stopping_rounds=10)
 
         xgb_val_predictions = ranker.predict(dbval)
         first_idxs, second_idxs = [2*i for i in range(len(xgb_val_predictions) // 2)], [2*i + 1 for i in range(len(xgb_val_predictions) // 2)]
@@ -627,7 +640,7 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
         second_stage_y += val_labels
 
 
-    second_stage_first_features, second_stage_second_features = get_embeddings(second_stage_X, "second_stage_embeddings", forget_embeddings=True)
+    second_stage_first_features, second_stage_second_features = get_embeddings(second_stage_X, "second_stage_embeddings", forget_embeddings=False)
     second_stage_diff = second_stage_first_features - second_stage_second_features
 
     second_stage_w = train_second_stage_model(second_stage_diff, second_stage_xgb_diffs, second_stage_y)
@@ -649,11 +662,13 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     train_ranks = asyncio.run(rank_press_conferences(train_pairs, limit_rates))
 
     train_pairs, train_ranks = prune_cycles(train_pairs, train_ranks)
-    train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=True)
+    train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=False)
     dbtrain = data_to_xgboost_format(train_first_features, train_second_features, train_ranks)
 
-    test_pairs, test_ranks = prune_cycles(test_pairs, test_ranks)
-    test_first_features, test_second_features = data_pipeline(test_df, test_pairs, "test_embeddings", exclude_embeddings=True, forget_embeddings=True)
+    #test_pairs, test_ranks = prune_cycles(test_pairs, test_ranks)
+    index_pairs = text_to_index_pairs(test_pairs, test_df)
+
+    test_first_features, test_second_features = data_pipeline(test_df, test_pairs, "test_embeddings", exclude_embeddings=True, forget_embeddings=False)
     dbtest = data_to_xgboost_format(test_first_features, test_second_features, test_ranks)
 
     best_xgb = xgb.train(params, dbtrain, num_rounds)
@@ -663,29 +678,82 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     xgb_test_differences = xgb_test_predictions[first_idxs] - xgb_test_predictions[second_idxs]
     xgb_test_probs = 1 / (1 + np.exp(- xgb_test_differences))
 
-    test_first_features, test_second_features = get_embeddings(test_pairs, "test_embeddings", forget_embeddings=True)
+    test_first_features, test_second_features = get_embeddings(test_pairs, "test_embeddings", forget_embeddings=False)
     test_diff = test_first_features - test_second_features
     test_corrections = np.dot(second_stage_w, test_diff.T)
-    test_predictions_incorrected = 1 / (1 + np.exp(- xgb_test_differences))
-    test_predictions_corrected = 1 / (1 + np.exp(- (xgb_test_differences + test_corrections)))
+    test_probs_incorrected = 1 / (1 + np.exp(- xgb_test_differences))
+    test_probs_corrected = 1 / (1 + np.exp(- (xgb_test_differences + test_corrections)))
 
     test_labels = dbtest.get_label() 
     test_labels = [test_labels[2*i] for i in range(len(test_labels) // 2)]
 
-    print('Test AUC score incorrected: ', roc_auc_score(test_labels, test_predictions_incorrected))
-    print('Test AUC score corrected: ', roc_auc_score(test_labels, test_predictions_corrected)) 
+    print('Test AUC score incorrected: ', roc_auc_score(test_labels, test_probs_incorrected))
+    print('Test AUC score corrected: ', roc_auc_score(test_labels, test_probs_corrected)) 
 
-   
-
-    test_predictions_corrected = [1 if diff > 0.5 else 0 for diff in test_predictions_corrected]
-    test_predictions_incorrected = [1 if diff > 0.5 else 0 for diff in test_predictions_incorrected]
+    test_predictions_corrected = [1 if diff > 0.5 else 0 for diff in test_probs_corrected]
+    test_predictions_incorrected = [1 if diff > 0.5 else 0 for diff in test_probs_incorrected]
 
     print('Test Accuracy score incorrected : ', accuracy_score(test_labels, test_predictions_incorrected))
     print('Test Confusion matrix incorrected: ', confusion_matrix(test_labels, test_predictions_incorrected))
-   
+    plt.scatter(test_probs_incorrected, test_labels)
+    plt.title('Scatter Plot for incorrected predictions')
+    plt.xlabel('Probability of the first document being more hawkish')
+    plt.ylabel('True Label')
+    plt.show()
+
+    def simulate_removal(errors_matrix, top_k = 5):
+        errors_matrix = errors_matrix.copy()
+        initial_size = len(errors_matrix) ** 2 - len(errors_matrix)
+        initial_errors = np.sum(errors_matrix)
+        initial_accuracy = 1 - initial_errors / initial_size
+        print(f"Initial Accuracy: {initial_accuracy}")
+
+        error_contribution = np.sum(errors_matrix, axis=1)
+        high_error_docs = np.argsort(-error_contribution)
+        for idx in high_error_docs[:top_k]:
+            errors_matrix[idx, :], errors_matrix[:, idx] = 0, 0 #Assume that this document would not exist. 
+            size = initial_size - (2 * len(errors_matrix) - 2)
+            errors = np.sum(errors_matrix)
+            new_accuracy = 1 - errors / size
+            print(f"Removing document {idx} accuracy: {new_accuracy}")
+        
+        return
+
+
+    errors_map = np.zeros(shape=(len(test_texts), len(test_texts)))
+    min_idx = min(min(index_pairs[i][0] for i in range(len(index_pairs))), min(index_pairs[i][1] for i in range(len(index_pairs))))
+    for i, pred in enumerate(test_predictions_incorrected):
+        if pred != test_labels[i]:
+            row = index_pairs[i][0] % min_idx
+            col = index_pairs[i][1] % min_idx
+            errors_map[row][col], errors_map[col][row] = 1, 1
+
+    #Because we prune cycles in the test set, we have slightly different during the removal procedure
+    print('Incorrected Total Documents : ', len(test_texts), 'Min Index : ', min_idx)
+    print('Errors on index : ', np.sum(errors_map, axis=1))
+    print('Simulated removal of top 5 documents: ', simulate_removal(errors_map, top_k=5))
 
     print('Test Accuracy score corrected: ', accuracy_score(test_labels, test_predictions_corrected))
     print('Test Confusion matrix corrected: ', confusion_matrix(test_labels, test_predictions_corrected))
+    plt.scatter(test_probs_corrected, test_labels)
+    plt.title('Scatter Plot for corrected predictions')
+    plt.xlabel('Probability of the first document being more hawkish')
+    plt.ylabel('True Label')
+    plt.show()
+
+    errors_map = np.zeros(shape=(len(test_texts), len(test_texts)))
+    min_idx = min(min(index_pairs[i][0] for i in range(len(index_pairs))), min(index_pairs[i][1] for i in range(len(index_pairs))))
+    for i, pred in enumerate(test_predictions_corrected):
+        if pred != test_labels[i]:
+            row = index_pairs[i][0] % min_idx
+            col = index_pairs[i][1] % min_idx
+            errors_map[row][col], errors_map[col][row] = 1, 1
+
+    print('Incorrected Total Documents : ', len(test_texts), 'Min Index : ', min_idx)
+    print('Errors on index : ', np.sum(errors_map, axis=1))
+    print('Simulated removal of top 5 documents: ', simulate_removal(errors_map, top_k=5))
+    
+    stop = 1
 
 
 if __name__ == "__main__":

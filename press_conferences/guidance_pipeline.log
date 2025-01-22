@@ -7464,3 +7464,1570 @@
 2025-01-21 10:52:47,694 - INFO - Retrying request to /embeddings in 0.420072 seconds
 2025-01-21 10:53:57,668 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 503 Service Unavailable"
 2025-01-21 10:53:57,689 - INFO - Retrying request to /embeddings in 0.993747 seconds
+2025-01-22 13:37:46,085 - INFO - Embedding pairs
+2025-01-22 13:37:49,351 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:37:50,889 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:37:52,513 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:37:54,588 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:37:55,363 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 13:37:57,919 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:38:01,243 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:38:02,697 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:38:03,595 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 13:38:03,595 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 13:38:03,595 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 13:38:03,595 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 13:38:03,596 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 13:38:03,596 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:38:03,596 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 13:38:03,596 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:38:03,596 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:38:03,596 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 13:38:03,625 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 13:38:03,625 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 13:38:03,626 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 13:38:07,403 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:07,519 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:07,646 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:07,655 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:07,757 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:07,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:07,999 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,146 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,295 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,300 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,329 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,356 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,452 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,456 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,493 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,523 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,619 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,702 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,731 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,795 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,846 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,875 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:08,915 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,023 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,089 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,154 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,212 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,257 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,302 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,352 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,376 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,386 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,388 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,499 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,594 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,600 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,623 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,780 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,814 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,822 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,857 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,918 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,994 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:09,995 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,047 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,049 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,063 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,083 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,107 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,128 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,184 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,199 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,211 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,220 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,233 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,261 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,271 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,275 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,296 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,303 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,321 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,403 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,424 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,428 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,440 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,451 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,490 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,514 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,593 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,687 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,715 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,782 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,808 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,834 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,869 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,886 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,894 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,908 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,945 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,958 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:10,969 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,105 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,117 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,150 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,153 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,169 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,232 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,234 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,268 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,288 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,345 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,363 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,589 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,601 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,621 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,623 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,717 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,731 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,872 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:11,990 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:12,308 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:38:12,366 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 13:40:35,686 - INFO - Embedding pairs
+2025-01-22 13:40:38,807 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:40,035 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:42,083 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:43,533 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:40:44,018 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 13:40:46,590 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:49,936 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:51,441 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:40:52,059 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:40:52,060 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 13:40:52,088 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 13:40:52,088 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 13:40:52,090 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 13:41:00,255 - INFO - Training model
+2025-01-22 13:41:00,321 - INFO - Val Accuracy score for 0 Fold: 0.8421052631578947
+2025-01-22 13:41:00,322 - INFO - Val Confusion matrix for 0 Fold: [[101  12]
+ [ 15  43]]
+2025-01-22 13:41:07,424 - INFO - Training model
+2025-01-22 13:41:07,490 - INFO - Val Accuracy score for 1 Fold: 0.8052631578947368
+2025-01-22 13:41:07,491 - INFO - Val Confusion matrix for 1 Fold: [[76 19]
+ [18 77]]
+2025-01-22 13:41:14,414 - INFO - Training model
+2025-01-22 13:41:14,478 - INFO - Val Accuracy score for 2 Fold: 0.7953216374269005
+2025-01-22 13:41:14,479 - INFO - Val Confusion matrix for 2 Fold: [[71 21]
+ [14 65]]
+2025-01-22 13:41:21,625 - INFO - Training model
+2025-01-22 13:41:21,686 - INFO - Val Accuracy score for 3 Fold: 0.8627450980392157
+2025-01-22 13:41:21,687 - INFO - Val Confusion matrix for 3 Fold: [[70  5]
+ [16 62]]
+2025-01-22 13:41:28,876 - INFO - Training model
+2025-01-22 13:41:28,957 - INFO - Val Accuracy score for 4 Fold: 0.7485380116959064
+2025-01-22 13:41:28,959 - INFO - Val Confusion matrix for 4 Fold: [[67 18]
+ [25 61]]
+2025-01-22 13:41:48,851 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:42:08,065 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:42:10,711 - INFO - First Stage Aggregated Val Accuracy: 0.8095794392523364
+2025-01-22 13:42:10,713 - INFO - Second Stage Training Accuracy: 0.8095794392523364
+2025-01-22 13:42:10,716 - INFO - First Stage Aggregated Val Confusion Matrix: [[385  75]
+ [ 88 308]]
+2025-01-22 13:42:10,719 - INFO - Second Stage Training Confusion Matrix: [[385  75]
+ [ 88 308]]
+2025-01-22 13:42:49,164 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:42:52,152 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:00,206 - INFO - Embedding pairs
+2025-01-22 13:45:03,059 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:04,971 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:06,994 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:08,426 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:45:09,083 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 13:45:11,499 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:14,434 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:16,285 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:45:16,823 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 13:45:16,851 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 13:45:16,852 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 13:45:16,852 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 13:45:24,954 - INFO - Training model
+2025-01-22 13:45:25,007 - INFO - Val Accuracy score for 0 Fold: 0.8128654970760234
+2025-01-22 13:45:25,008 - INFO - Val Confusion matrix for 0 Fold: [[93 20]
+ [12 46]]
+2025-01-22 13:45:31,969 - INFO - Training model
+2025-01-22 13:45:32,020 - INFO - Val Accuracy score for 1 Fold: 0.7947368421052632
+2025-01-22 13:45:32,021 - INFO - Val Confusion matrix for 1 Fold: [[73 22]
+ [17 78]]
+2025-01-22 13:45:38,547 - INFO - Training model
+2025-01-22 13:45:38,616 - INFO - Val Accuracy score for 2 Fold: 0.7777777777777778
+2025-01-22 13:45:38,618 - INFO - Val Confusion matrix for 2 Fold: [[74 18]
+ [20 59]]
+2025-01-22 13:45:45,199 - INFO - Training model
+2025-01-22 13:45:45,278 - INFO - Val Accuracy score for 3 Fold: 0.8104575163398693
+2025-01-22 13:45:45,280 - INFO - Val Confusion matrix for 3 Fold: [[65 10]
+ [19 59]]
+2025-01-22 13:45:52,244 - INFO - Training model
+2025-01-22 13:45:52,313 - INFO - Val Accuracy score for 4 Fold: 0.8128654970760234
+2025-01-22 13:45:52,315 - INFO - Val Confusion matrix for 4 Fold: [[70 15]
+ [17 69]]
+2025-01-22 13:46:19,628 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:46:47,450 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:46:49,372 - INFO - First Stage Aggregated Val Accuracy: 0.8014018691588785
+2025-01-22 13:46:49,372 - INFO - Second Stage Training Accuracy: 0.802570093457944
+2025-01-22 13:46:49,377 - INFO - First Stage Aggregated Val Confusion Matrix: [[375  85]
+ [ 85 311]]
+2025-01-22 13:46:49,380 - INFO - Second Stage Training Confusion Matrix: [[375  85]
+ [ 84 312]]
+2025-01-22 13:47:23,802 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:47:27,545 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:36,477 - INFO - Embedding pairs
+2025-01-22 13:48:39,471 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:40,916 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:42,649 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:43,898 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 13:48:44,090 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 13:48:44,091 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:48:44,091 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 13:48:46,952 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:49,818 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:51,357 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:48:52,053 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 13:48:52,054 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 13:48:52,082 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 13:48:52,082 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 13:48:52,083 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 13:48:59,884 - INFO - Training model
+2025-01-22 13:48:59,956 - INFO - Val Accuracy score for 0 Fold: 0.847953216374269
+2025-01-22 13:48:59,957 - INFO - Val Confusion matrix for 0 Fold: [[98 15]
+ [11 47]]
+2025-01-22 13:49:07,013 - INFO - Training model
+2025-01-22 13:49:07,064 - INFO - Val Accuracy score for 1 Fold: 0.8368421052631579
+2025-01-22 13:49:07,066 - INFO - Val Confusion matrix for 1 Fold: [[80 15]
+ [16 79]]
+2025-01-22 13:49:14,271 - INFO - Training model
+2025-01-22 13:49:14,331 - INFO - Val Accuracy score for 2 Fold: 0.7894736842105263
+2025-01-22 13:49:14,333 - INFO - Val Confusion matrix for 2 Fold: [[75 17]
+ [19 60]]
+2025-01-22 13:49:21,617 - INFO - Training model
+2025-01-22 13:49:21,812 - INFO - Val Accuracy score for 3 Fold: 0.7973856209150327
+2025-01-22 13:49:21,813 - INFO - Val Confusion matrix for 3 Fold: [[63 12]
+ [19 59]]
+2025-01-22 13:49:29,868 - INFO - Training model
+2025-01-22 13:49:29,952 - INFO - Val Accuracy score for 4 Fold: 0.7894736842105263
+2025-01-22 13:49:29,953 - INFO - Val Confusion matrix for 4 Fold: [[68 17]
+ [19 67]]
+2025-01-22 13:49:50,005 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:50:19,217 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:50:21,409 - INFO - First Stage Aggregated Val Accuracy: 0.8130841121495327
+2025-01-22 13:50:21,410 - INFO - Second Stage Training Accuracy: 0.8142523364485982
+2025-01-22 13:50:21,414 - INFO - First Stage Aggregated Val Confusion Matrix: [[384  76]
+ [ 84 312]]
+2025-01-22 13:50:21,418 - INFO - Second Stage Training Confusion Matrix: [[384  76]
+ [ 83 313]]
+2025-01-22 13:50:58,986 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 13:51:02,325 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:04,927 - INFO - Embedding pairs
+2025-01-22 14:02:08,109 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:09,531 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:11,202 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:12,534 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:02:13,028 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 14:02:15,609 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:18,463 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:20,010 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:02:20,260 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 14:02:20,287 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 14:02:20,287 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 14:02:20,288 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 14:02:26,824 - INFO - Training model
+2025-01-22 14:02:26,891 - INFO - Val Accuracy score for 0 Fold: 0.8304093567251462
+2025-01-22 14:02:26,893 - INFO - Val Confusion matrix for 0 Fold: [[97 16]
+ [13 45]]
+2025-01-22 14:02:33,056 - INFO - Training model
+2025-01-22 14:02:33,113 - INFO - Val Accuracy score for 1 Fold: 0.8157894736842105
+2025-01-22 14:02:33,114 - INFO - Val Confusion matrix for 1 Fold: [[77 18]
+ [17 78]]
+2025-01-22 14:02:39,085 - INFO - Training model
+2025-01-22 14:02:39,137 - INFO - Val Accuracy score for 2 Fold: 0.7777777777777778
+2025-01-22 14:02:39,139 - INFO - Val Confusion matrix for 2 Fold: [[74 18]
+ [20 59]]
+2025-01-22 14:02:45,052 - INFO - Training model
+2025-01-22 14:02:45,225 - INFO - Val Accuracy score for 3 Fold: 0.7843137254901961
+2025-01-22 14:02:45,226 - INFO - Val Confusion matrix for 3 Fold: [[66  9]
+ [24 54]]
+2025-01-22 14:02:51,042 - INFO - Training model
+2025-01-22 14:02:51,107 - INFO - Val Accuracy score for 4 Fold: 0.7485380116959064
+2025-01-22 14:02:51,109 - INFO - Val Confusion matrix for 4 Fold: [[70 15]
+ [28 58]]
+2025-01-22 14:03:09,719 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:03:30,669 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:03:35,390 - INFO - First Stage Aggregated Val Accuracy: 0.7920560747663551
+2025-01-22 14:03:35,391 - INFO - Second Stage Training Accuracy: 0.7920560747663551
+2025-01-22 14:03:35,395 - INFO - First Stage Aggregated Val Confusion Matrix: [[384  76]
+ [102 294]]
+2025-01-22 14:03:35,398 - INFO - Second Stage Training Confusion Matrix: [[383  77]
+ [101 295]]
+2025-01-22 14:04:07,171 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:04:11,322 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:30,250 - INFO - Embedding pairs
+2025-01-22 14:08:33,142 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:34,751 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:36,845 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:38,647 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:39,560 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:08:39,561 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 14:08:41,262 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:44,426 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:46,334 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:08:47,008 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 14:08:47,034 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 14:08:47,035 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 14:08:47,035 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 14:08:53,618 - INFO - Training model
+2025-01-22 14:08:53,677 - INFO - Val Accuracy score for 0 Fold: 0.7894736842105263
+2025-01-22 14:08:53,678 - INFO - Val Confusion matrix for 0 Fold: [[93 20]
+ [16 42]]
+2025-01-22 14:08:59,907 - INFO - Training model
+2025-01-22 14:08:59,960 - INFO - Val Accuracy score for 1 Fold: 0.7526315789473684
+2025-01-22 14:08:59,961 - INFO - Val Confusion matrix for 1 Fold: [[69 26]
+ [21 74]]
+2025-01-22 14:09:05,987 - INFO - Training model
+2025-01-22 14:09:06,042 - INFO - Val Accuracy score for 2 Fold: 0.7660818713450293
+2025-01-22 14:09:06,043 - INFO - Val Confusion matrix for 2 Fold: [[66 26]
+ [14 65]]
+2025-01-22 14:09:12,036 - INFO - Training model
+2025-01-22 14:09:12,118 - INFO - Val Accuracy score for 3 Fold: 0.8366013071895425
+2025-01-22 14:09:12,120 - INFO - Val Confusion matrix for 3 Fold: [[65 10]
+ [15 63]]
+2025-01-22 14:09:18,091 - INFO - Training model
+2025-01-22 14:09:18,139 - INFO - Val Accuracy score for 4 Fold: 0.783625730994152
+2025-01-22 14:09:18,140 - INFO - Val Confusion matrix for 4 Fold: [[74 11]
+ [26 60]]
+2025-01-22 14:09:39,317 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:10:09,640 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:10:11,532 - INFO - First Stage Aggregated Val Accuracy: 0.7838785046728972
+2025-01-22 14:10:11,533 - INFO - Second Stage Training Accuracy: 0.7873831775700935
+2025-01-22 14:10:11,536 - INFO - First Stage Aggregated Val Confusion Matrix: [[367  93]
+ [ 92 304]]
+2025-01-22 14:10:11,539 - INFO - Second Stage Training Confusion Matrix: [[367  93]
+ [ 89 307]]
+2025-01-22 14:10:47,142 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:10:50,164 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:22:50,003 - INFO - Embedding pairs
+2025-01-22 14:22:52,856 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:22:56,093 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:22:57,813 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:22:59,061 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:22:59,927 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 14:23:02,444 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:23:05,958 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:23:07,734 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:23:08,344 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 14:23:08,344 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 14:23:08,344 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:23:08,345 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 14:23:08,370 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 14:23:08,371 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 14:23:08,371 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 14:23:14,303 - INFO - Training model
+2025-01-22 14:23:14,365 - INFO - Val Accuracy score for 0 Fold: 0.7953216374269005
+2025-01-22 14:23:14,366 - INFO - Val Confusion matrix for 0 Fold: [[99 14]
+ [21 37]]
+2025-01-22 14:23:19,845 - INFO - Training model
+2025-01-22 14:23:19,896 - INFO - Val Accuracy score for 1 Fold: 0.8315789473684211
+2025-01-22 14:23:19,898 - INFO - Val Confusion matrix for 1 Fold: [[73 22]
+ [10 85]]
+2025-01-22 14:23:25,189 - INFO - Training model
+2025-01-22 14:23:25,308 - INFO - Val Accuracy score for 2 Fold: 0.7192982456140351
+2025-01-22 14:23:25,309 - INFO - Val Confusion matrix for 2 Fold: [[69 23]
+ [25 54]]
+2025-01-22 14:23:30,611 - INFO - Training model
+2025-01-22 14:23:30,667 - INFO - Val Accuracy score for 3 Fold: 0.7712418300653595
+2025-01-22 14:23:30,668 - INFO - Val Confusion matrix for 3 Fold: [[59 16]
+ [19 59]]
+2025-01-22 14:23:35,985 - INFO - Training model
+2025-01-22 14:23:36,118 - INFO - Val Accuracy score for 4 Fold: 0.7777777777777778
+2025-01-22 14:23:36,120 - INFO - Val Confusion matrix for 4 Fold: [[67 18]
+ [20 66]]
+2025-01-22 14:23:55,253 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:24:15,260 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:24:18,105 - INFO - First Stage Aggregated Val Accuracy: 0.780373831775701
+2025-01-22 14:24:18,106 - INFO - Second Stage Training Accuracy: 0.7815420560747663
+2025-01-22 14:24:18,110 - INFO - First Stage Aggregated Val Confusion Matrix: [[367  93]
+ [ 95 301]]
+2025-01-22 14:24:18,114 - INFO - Second Stage Training Confusion Matrix: [[367  93]
+ [ 94 302]]
+2025-01-22 14:24:49,441 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:24:53,180 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:16,697 - INFO - Embedding pairs
+2025-01-22 14:27:20,084 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:21,488 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:23,327 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:30,432 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:31,191 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 14:27:31,191 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:27:31,192 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 14:27:33,538 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:36,401 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:38,015 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:27:38,623 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 14:27:38,623 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 14:27:38,623 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 14:27:38,623 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 14:27:38,623 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 14:27:38,623 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:27:38,624 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 14:27:38,624 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:27:38,624 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:27:38,624 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 14:27:38,649 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 14:27:38,649 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 14:27:38,650 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 14:27:45,212 - INFO - Training model
+2025-01-22 14:27:45,278 - INFO - Val Accuracy score for 0 Fold: 0.847953216374269
+2025-01-22 14:27:45,279 - INFO - Val Confusion matrix for 0 Fold: [[102  11]
+ [ 15  43]]
+2025-01-22 14:27:51,203 - INFO - Training model
+2025-01-22 14:27:51,262 - INFO - Val Accuracy score for 1 Fold: 0.8
+2025-01-22 14:27:51,263 - INFO - Val Confusion matrix for 1 Fold: [[70 25]
+ [13 82]]
+2025-01-22 14:27:57,076 - INFO - Training model
+2025-01-22 14:27:57,127 - INFO - Val Accuracy score for 2 Fold: 0.7660818713450293
+2025-01-22 14:27:57,128 - INFO - Val Confusion matrix for 2 Fold: [[65 27]
+ [13 66]]
+2025-01-22 14:28:02,895 - INFO - Training model
+2025-01-22 14:28:02,942 - INFO - Val Accuracy score for 3 Fold: 0.803921568627451
+2025-01-22 14:28:02,943 - INFO - Val Confusion matrix for 3 Fold: [[66  9]
+ [21 57]]
+2025-01-22 14:28:08,786 - INFO - Training model
+2025-01-22 14:28:08,836 - INFO - Val Accuracy score for 4 Fold: 0.7777777777777778
+2025-01-22 14:28:08,837 - INFO - Val Confusion matrix for 4 Fold: [[65 20]
+ [18 68]]
+2025-01-22 14:28:30,356 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:28:58,795 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:29:06,391 - INFO - First Stage Aggregated Val Accuracy: 0.7990654205607477
+2025-01-22 14:29:06,392 - INFO - Second Stage Training Accuracy: 0.7990654205607477
+2025-01-22 14:29:06,396 - INFO - First Stage Aggregated Val Confusion Matrix: [[368  92]
+ [ 80 316]]
+2025-01-22 14:29:06,398 - INFO - Second Stage Training Confusion Matrix: [[368  92]
+ [ 80 316]]
+2025-01-22 14:29:42,418 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:29:45,726 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:50:46,797 - INFO - Embedding pairs
+2025-01-22 14:50:49,853 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:50:51,379 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:50:54,195 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:50:55,807 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:50:56,431 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 14:50:56,432 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 14:50:56,432 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:50:56,432 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 14:50:59,319 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:51:02,469 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:51:04,731 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 14:51:05,594 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 14:51:05,620 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 14:51:05,620 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 14:51:05,620 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 14:51:12,566 - INFO - Training model
+2025-01-22 14:51:12,632 - INFO - Val Accuracy score for 0 Fold: 0.8538011695906432
+2025-01-22 14:51:12,634 - INFO - Val Confusion matrix for 0 Fold: [[100  13]
+ [ 12  46]]
+2025-01-22 14:51:18,526 - INFO - Training model
+2025-01-22 14:51:18,591 - INFO - Val Accuracy score for 1 Fold: 0.8210526315789474
+2025-01-22 14:51:18,592 - INFO - Val Confusion matrix for 1 Fold: [[77 18]
+ [16 79]]
+2025-01-22 14:51:24,360 - INFO - Training model
+2025-01-22 14:51:24,419 - INFO - Val Accuracy score for 2 Fold: 0.8187134502923976
+2025-01-22 14:51:24,420 - INFO - Val Confusion matrix for 2 Fold: [[73 19]
+ [12 67]]
+2025-01-22 14:51:30,081 - INFO - Training model
+2025-01-22 14:51:30,138 - INFO - Val Accuracy score for 3 Fold: 0.7581699346405228
+2025-01-22 14:51:30,139 - INFO - Val Confusion matrix for 3 Fold: [[67  8]
+ [29 49]]
+2025-01-22 14:51:35,831 - INFO - Training model
+2025-01-22 14:51:35,878 - INFO - Val Accuracy score for 4 Fold: 0.7894736842105263
+2025-01-22 14:51:35,879 - INFO - Val Confusion matrix for 4 Fold: [[71 14]
+ [22 64]]
+2025-01-22 14:52:05,976 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:52:26,598 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:52:28,533 - INFO - First Stage Aggregated Val Accuracy: 0.8095794392523364
+2025-01-22 14:52:28,533 - INFO - Second Stage Training Accuracy: 0.8072429906542056
+2025-01-22 14:52:28,536 - INFO - First Stage Aggregated Val Confusion Matrix: [[388  72]
+ [ 91 305]]
+2025-01-22 14:52:28,539 - INFO - Second Stage Training Confusion Matrix: [[386  74]
+ [ 91 305]]
+2025-01-22 14:53:01,068 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 14:53:04,225 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:26:53,621 - INFO - Embedding pairs
+2025-01-22 15:26:57,198 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:26:58,829 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:27:00,588 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:27:03,161 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Results: [0.6923076923076923, 0.8461538461538461, 0.7307692307692307, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Results: [0.7692307692307693, 0.8846153846153846, 0.7692307692307693, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:27:04,033 - INFO - Guidance Pipeline - Last Year 2023 - Best Score: 0.8307692307692308
+2025-01-22 15:27:06,875 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:27:10,812 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:27:12,948 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:27:13,541 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 0.1}
+2025-01-22 15:27:13,541 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.5769230769230769, 0.6538461538461539, 0.7307692307692307, 0.5384615384615384, 0.6923076923076923]
+2025-01-22 15:27:13,541 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 1}
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8076923076923077, 0.8076923076923077, 0.8846153846153846, 0.7692307692307693]
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 10}
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.9230769230769231, 0.8076923076923077]
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 100}
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.9230769230769231, 0.8076923076923077]
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:27:13,542 - INFO - Employment Pipeline - Last Year 2023 - Best Score: 0.8769230769230768
+2025-01-22 15:27:13,576 - INFO - Employment Pipeline - Last Year 2023 - Train Accuracy: 1.00
+2025-01-22 15:27:13,576 - INFO - Employment Pipeline - Last Year 2023 - Test Accuracy: 0.88
+2025-01-22 15:27:13,576 - INFO - Employment Pipeline - Last Year 2023 - Test Confusion Matrix: [[5 0]
+ [2 9]]
+2025-01-22 15:27:19,603 - INFO - Training model
+2025-01-22 15:27:19,675 - INFO - Val Accuracy score for 0 Fold: 0.782608695652174
+2025-01-22 15:27:19,676 - INFO - Val Confusion matrix for 0 Fold: [[ 98  32]
+ [ 23 100]]
+2025-01-22 15:27:25,366 - INFO - Training model
+2025-01-22 15:27:25,492 - INFO - Val Accuracy score for 1 Fold: 0.7705627705627706
+2025-01-22 15:27:25,494 - INFO - Val Confusion matrix for 1 Fold: [[97 24]
+ [29 81]]
+2025-01-22 15:27:31,336 - INFO - Training model
+2025-01-22 15:27:31,395 - INFO - Val Accuracy score for 2 Fold: 0.7428571428571429
+2025-01-22 15:27:31,396 - INFO - Val Confusion matrix for 2 Fold: [[93 27]
+ [27 63]]
+2025-01-22 15:27:37,147 - INFO - Training model
+2025-01-22 15:27:37,203 - INFO - Val Accuracy score for 3 Fold: 0.7944664031620553
+2025-01-22 15:27:37,205 - INFO - Val Confusion matrix for 3 Fold: [[118  20]
+ [ 32  83]]
+2025-01-22 15:27:42,950 - INFO - Training model
+2025-01-22 15:27:43,008 - INFO - Val Accuracy score for 4 Fold: 0.7792207792207793
+2025-01-22 15:27:43,009 - INFO - Val Confusion matrix for 4 Fold: [[ 77  24]
+ [ 27 103]]
+2025-01-22 15:28:06,210 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:28:14,199 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:28:39,430 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:28:45,533 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:28:46,882 - INFO - First Stage Aggregated Val Accuracy: 0.7750424448217318
+2025-01-22 15:28:46,884 - INFO - Second Stage Training Accuracy: 0.7758913412563667
+2025-01-22 15:28:46,888 - INFO - First Stage Aggregated Val Confusion Matrix: [[483 127]
+ [138 430]]
+2025-01-22 15:28:46,892 - INFO - Second Stage Training Confusion Matrix: [[482 128]
+ [136 432]]
+2025-01-22 15:29:31,695 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:31,859 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:31,862 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:31,876 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,000 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,100 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,108 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,172 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,197 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,209 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,238 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,248 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,267 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,337 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,348 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,355 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,402 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,526 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,528 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,535 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,540 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,559 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,609 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,659 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,666 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,691 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,702 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,707 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,713 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,753 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,756 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,769 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,772 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,775 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,784 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,797 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,814 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,830 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,840 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,844 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,881 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,892 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,903 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,923 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,970 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:32,971 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,127 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,129 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,131 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,133 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,135 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,137 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,140 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,160 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,162 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,163 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,164 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,176 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,182 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,192 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,222 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,227 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,232 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,237 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,244 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,259 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,290 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,301 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,310 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,314 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,315 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,333 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,337 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,350 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,356 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,381 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,413 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,416 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,417 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,433 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,435 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,438 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,441 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,458 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,494 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,497 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,515 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,566 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,579 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,604 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,616 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,619 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,638 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,654 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,657 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,665 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,669 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,673 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,687 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,704 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,705 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,711 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,720 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,725 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,729 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,745 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,755 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,757 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,761 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,762 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,764 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,772 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,775 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,779 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,782 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,784 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,812 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,827 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,828 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,832 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,836 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,841 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,848 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,858 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,865 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,874 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,876 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,877 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,893 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,920 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,927 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,930 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,940 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,954 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,956 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,975 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,993 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,995 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:33,998 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,010 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,016 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,023 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,026 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,035 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,044 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,057 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,060 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,066 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,069 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,070 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,074 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,079 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,119 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,123 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,135 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,149 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,152 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,158 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,167 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,168 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,175 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,190 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,201 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,203 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,204 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,207 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,213 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,225 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,227 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,245 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,249 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,253 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,256 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,265 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,284 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,289 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,294 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,310 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,313 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,314 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,317 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,331 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,336 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,344 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,361 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,372 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,384 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,397 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,398 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,407 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,407 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,424 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,429 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,439 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,447 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,450 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,459 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,463 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,464 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,471 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,479 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,485 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,492 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,495 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,495 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,503 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,509 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,512 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,521 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,553 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,562 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,566 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,577 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,578 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,579 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,579 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,581 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,585 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,589 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,602 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,606 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,618 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,629 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,630 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,635 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,655 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,658 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,661 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,665 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,667 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,690 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,691 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,704 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,715 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,717 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,719 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,732 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,736 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,742 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,746 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,756 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,774 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,791 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,805 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,810 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,834 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,837 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,841 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,850 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,870 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,872 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,883 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,885 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,890 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,900 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,901 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,910 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,911 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,914 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,917 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,924 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,931 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,950 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,962 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,977 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,979 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,981 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,983 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:34,996 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,001 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,003 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,006 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,010 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,042 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,044 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,056 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,057 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,059 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,067 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,070 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,076 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,077 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,080 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,091 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,096 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,122 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,137 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,147 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,178 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,183 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,190 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,194 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,208 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,221 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,234 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,250 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,287 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,289 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,306 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,327 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,334 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,348 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,367 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,375 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,385 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,415 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,426 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,427 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,427 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,438 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,453 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,476 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,481 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,484 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,517 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,524 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,528 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,533 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,535 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,572 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,588 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,626 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,653 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,677 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,693 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,695 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,732 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,741 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,763 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,771 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,813 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,838 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,840 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,849 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,850 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,871 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,874 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,875 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,880 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,881 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,882 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,885 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,900 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,947 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,956 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,957 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,960 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,968 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,973 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,977 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,983 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:35,984 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,035 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,056 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,062 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,073 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,081 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,088 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,102 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,108 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,232 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,237 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,247 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,258 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,277 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,283 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,299 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,319 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,328 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,348 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,351 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,393 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,404 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,419 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,436 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,457 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,481 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,505 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,520 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,524 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,548 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,558 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,559 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,590 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,632 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,663 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,679 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,685 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,711 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,750 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,794 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,810 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:36,834 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,060 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,074 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,172 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,185 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,284 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,320 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,392 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,486 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,527 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,580 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,620 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,764 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,852 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,879 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,930 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,942 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,958 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:37,983 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,072 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,198 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,247 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,262 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,273 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,441 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,454 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,512 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,522 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,885 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:38,900 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,019 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,033 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,048 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,094 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,114 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,197 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,356 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,396 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,471 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,475 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,487 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,627 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,665 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,694 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,748 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,900 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:39,912 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,007 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,189 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,322 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,371 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,400 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,413 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,545 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,724 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:40,867 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:41,065 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:29:41,150 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:42:39,093 - INFO - Embedding pairs
+2025-01-22 15:42:42,008 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:43,501 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:46,501 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:48,477 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Results: [0.6923076923076923, 0.8461538461538461, 0.7307692307692307, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Results: [0.7692307692307693, 0.8846153846153846, 0.7692307692307693, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:42:49,417 - INFO - Guidance Pipeline - Last Year 2023 - Best Score: 0.8307692307692308
+2025-01-22 15:42:51,401 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:54,456 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:56,217 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:42:56,838 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 0.1}
+2025-01-22 15:42:56,838 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.5769230769230769, 0.6538461538461539, 0.7307692307692307, 0.5384615384615384, 0.6923076923076923]
+2025-01-22 15:42:56,838 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 1}
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8076923076923077, 0.8076923076923077, 0.8846153846153846, 0.7692307692307693]
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 10}
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.8461538461538461]
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 100}
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.8076923076923077]
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:42:56,839 - INFO - Employment Pipeline - Last Year 2023 - Best Score: 0.8769230769230768
+2025-01-22 15:42:56,874 - INFO - Employment Pipeline - Last Year 2023 - Train Accuracy: 1.00
+2025-01-22 15:42:56,875 - INFO - Employment Pipeline - Last Year 2023 - Test Accuracy: 0.88
+2025-01-22 15:42:56,875 - INFO - Employment Pipeline - Last Year 2023 - Test Confusion Matrix: [[5 0]
+ [2 9]]
+2025-01-22 15:43:03,831 - INFO - Training model
+2025-01-22 15:43:03,885 - INFO - Val Accuracy score for 0 Fold: 0.83399209486166
+2025-01-22 15:43:03,886 - INFO - Val Confusion matrix for 0 Fold: [[106  24]
+ [ 18 105]]
+2025-01-22 15:43:10,725 - INFO - Training model
+2025-01-22 15:43:10,770 - INFO - Val Accuracy score for 1 Fold: 0.7922077922077922
+2025-01-22 15:43:10,772 - INFO - Val Confusion matrix for 1 Fold: [[102  19]
+ [ 29  81]]
+2025-01-22 15:43:16,885 - INFO - Training model
+2025-01-22 15:43:16,940 - INFO - Val Accuracy score for 2 Fold: 0.8238095238095238
+2025-01-22 15:43:16,942 - INFO - Val Confusion matrix for 2 Fold: [[105  15]
+ [ 22  68]]
+2025-01-22 15:43:23,092 - INFO - Training model
+2025-01-22 15:43:23,144 - INFO - Val Accuracy score for 3 Fold: 0.7430830039525692
+2025-01-22 15:43:23,146 - INFO - Val Confusion matrix for 3 Fold: [[111  27]
+ [ 38  77]]
+2025-01-22 15:43:29,274 - INFO - Training model
+2025-01-22 15:43:29,329 - INFO - Val Accuracy score for 4 Fold: 0.7575757575757576
+2025-01-22 15:43:29,331 - INFO - Val Confusion matrix for 4 Fold: [[77 24]
+ [32 98]]
+2025-01-22 15:43:52,053 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:43:59,142 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:44:25,132 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:44:31,686 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:44:33,021 - INFO - First Stage Aggregated Val Accuracy: 0.7894736842105263
+2025-01-22 15:44:33,022 - INFO - Second Stage Training Accuracy: 0.7911714770797963
+2025-01-22 15:44:33,025 - INFO - First Stage Aggregated Val Confusion Matrix: [[501 109]
+ [139 429]]
+2025-01-22 15:44:33,028 - INFO - Second Stage Training Confusion Matrix: [[501 109]
+ [137 431]]
+2025-01-22 15:48:58,112 - INFO - Embedding pairs
+2025-01-22 15:49:01,182 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:03,081 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:04,924 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:06,257 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Results: [0.6923076923076923, 0.8461538461538461, 0.7307692307692307, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Results: [0.7692307692307693, 0.8846153846153846, 0.7692307692307693, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:49:06,670 - INFO - Guidance Pipeline - Last Year 2023 - Best Score: 0.8307692307692308
+2025-01-22 15:49:08,885 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:12,176 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:13,598 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:49:14,326 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 0.1}
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.5769230769230769, 0.6538461538461539, 0.7307692307692307, 0.5384615384615384, 0.6923076923076923]
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 1}
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8076923076923077, 0.8076923076923077, 0.8846153846153846, 0.7692307692307693]
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 10}
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.9230769230769231, 0.8076923076923077]
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 100}
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.9230769230769231, 0.8076923076923077]
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:49:14,327 - INFO - Employment Pipeline - Last Year 2023 - Best Score: 0.8769230769230768
+2025-01-22 15:49:14,361 - INFO - Employment Pipeline - Last Year 2023 - Train Accuracy: 1.00
+2025-01-22 15:49:14,361 - INFO - Employment Pipeline - Last Year 2023 - Test Accuracy: 0.81
+2025-01-22 15:49:14,361 - INFO - Employment Pipeline - Last Year 2023 - Test Confusion Matrix: [[5 0]
+ [3 8]]
+2025-01-22 15:49:20,386 - INFO - Training model
+2025-01-22 15:49:20,458 - INFO - Val Accuracy score for 0 Fold: 0.8814229249011858
+2025-01-22 15:49:20,463 - INFO - Val Confusion matrix for 0 Fold: [[111  19]
+ [ 11 112]]
+2025-01-22 15:49:26,086 - INFO - Training model
+2025-01-22 15:49:26,139 - INFO - Val Accuracy score for 1 Fold: 0.7922077922077922
+2025-01-22 15:49:26,140 - INFO - Val Confusion matrix for 1 Fold: [[98 23]
+ [25 85]]
+2025-01-22 15:49:31,680 - INFO - Training model
+2025-01-22 15:49:31,743 - INFO - Val Accuracy score for 2 Fold: 0.819047619047619
+2025-01-22 15:49:31,744 - INFO - Val Confusion matrix for 2 Fold: [[102  18]
+ [ 20  70]]
+2025-01-22 15:49:37,456 - INFO - Training model
+2025-01-22 15:49:37,509 - INFO - Val Accuracy score for 3 Fold: 0.7865612648221344
+2025-01-22 15:49:37,511 - INFO - Val Confusion matrix for 3 Fold: [[118  20]
+ [ 34  81]]
+2025-01-22 15:49:43,117 - INFO - Training model
+2025-01-22 15:49:43,175 - INFO - Val Accuracy score for 4 Fold: 0.7445887445887446
+2025-01-22 15:49:43,176 - INFO - Val Confusion matrix for 4 Fold: [[74 27]
+ [32 98]]
+2025-01-22 15:50:07,052 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:50:14,218 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:50:34,613 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:50:41,337 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:50:42,617 - INFO - First Stage Aggregated Val Accuracy: 0.8056027164685908
+2025-01-22 15:50:42,618 - INFO - Second Stage Training Accuracy: 0.8064516129032258
+2025-01-22 15:50:42,622 - INFO - First Stage Aggregated Val Confusion Matrix: [[503 107]
+ [122 446]]
+2025-01-22 15:50:42,626 - INFO - Second Stage Training Confusion Matrix: [[503 107]
+ [121 447]]
+2025-01-22 15:51:17,888 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:18,179 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:18,344 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:18,378 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:18,925 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,130 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,275 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,445 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,510 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,598 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,963 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:19,982 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:20,145 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:20,613 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:20,861 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:22,034 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:22,460 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:23,436 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 15:51:29,487 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:51:32,453 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:35,158 - INFO - Embedding pairs
+2025-01-22 15:55:38,079 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:39,421 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:41,519 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:47,935 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Results: [0.6923076923076923, 0.8461538461538461, 0.7307692307692307, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Results: [0.7692307692307693, 0.8846153846153846, 0.7692307692307693, 0.7307692307692307, 0.7692307692307693]
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Results: [0.8076923076923077, 0.8846153846153846, 0.8461538461538461, 0.8461538461538461, 0.7692307692307693]
+2025-01-22 15:55:48,690 - INFO - Guidance Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:55:48,691 - INFO - Guidance Pipeline - Last Year 2023 - Best Score: 0.8307692307692308
+2025-01-22 15:55:51,125 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:53,890 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:55,132 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:55:55,670 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 0.1}
+2025-01-22 15:55:55,670 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.5769230769230769, 0.6538461538461539, 0.7307692307692307, 0.5384615384615384, 0.6923076923076923]
+2025-01-22 15:55:55,670 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 1}
+2025-01-22 15:55:55,670 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8076923076923077, 0.8076923076923077, 0.8846153846153846, 0.7692307692307693]
+2025-01-22 15:55:55,670 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 10}
+2025-01-22 15:55:55,670 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.9230769230769231, 0.8076923076923077]
+2025-01-22 15:55:55,671 - INFO - Employment Pipeline - Last Year 2023 - Params: {'C': 100}
+2025-01-22 15:55:55,671 - INFO - Employment Pipeline - Last Year 2023 - Results: [0.8846153846153846, 0.8846153846153846, 0.8846153846153846, 0.9230769230769231, 0.8076923076923077]
+2025-01-22 15:55:55,671 - INFO - Employment Pipeline - Last Year 2023 - Best Params: {'C': 10}
+2025-01-22 15:55:55,671 - INFO - Employment Pipeline - Last Year 2023 - Best Score: 0.8769230769230768
+2025-01-22 15:55:55,704 - INFO - Employment Pipeline - Last Year 2023 - Train Accuracy: 1.00
+2025-01-22 15:55:55,704 - INFO - Employment Pipeline - Last Year 2023 - Test Accuracy: 0.81
+2025-01-22 15:55:55,704 - INFO - Employment Pipeline - Last Year 2023 - Test Confusion Matrix: [[5 0]
+ [3 8]]
+2025-01-22 15:56:02,006 - INFO - Training model
+2025-01-22 15:56:02,067 - INFO - Val Accuracy score for 0 Fold: 0.8537549407114624
+2025-01-22 15:56:02,068 - INFO - Val Confusion matrix for 0 Fold: [[108  22]
+ [ 15 108]]
+2025-01-22 15:56:08,081 - INFO - Training model
+2025-01-22 15:56:08,136 - INFO - Val Accuracy score for 1 Fold: 0.7532467532467533
+2025-01-22 15:56:08,138 - INFO - Val Confusion matrix for 1 Fold: [[86 35]
+ [22 88]]
+2025-01-22 15:56:14,046 - INFO - Training model
+2025-01-22 15:56:14,105 - INFO - Val Accuracy score for 2 Fold: 0.7523809523809524
+2025-01-22 15:56:14,107 - INFO - Val Confusion matrix for 2 Fold: [[101  19]
+ [ 33  57]]
+2025-01-22 15:56:20,045 - INFO - Training model
+2025-01-22 15:56:20,124 - INFO - Val Accuracy score for 3 Fold: 0.758893280632411
+2025-01-22 15:56:20,127 - INFO - Val Confusion matrix for 3 Fold: [[116  22]
+ [ 39  76]]
+2025-01-22 15:56:26,041 - INFO - Training model
+2025-01-22 15:56:26,096 - INFO - Val Accuracy score for 4 Fold: 0.7705627705627706
+2025-01-22 15:56:26,098 - INFO - Val Confusion matrix for 4 Fold: [[83 18]
+ [35 95]]
+2025-01-22 15:56:48,773 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:56:55,942 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:57:17,588 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:57:24,306 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:57:25,696 - INFO - First Stage Aggregated Val Accuracy: 0.7792869269949066
+2025-01-22 15:57:25,697 - INFO - Second Stage Training Accuracy: 0.7818336162988115
+2025-01-22 15:57:25,701 - INFO - First Stage Aggregated Val Confusion Matrix: [[494 116]
+ [144 424]]
+2025-01-22 15:57:25,704 - INFO - Second Stage Training Confusion Matrix: [[494 116]
+ [141 427]]
+2025-01-22 15:58:09,338 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 15:58:14,178 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:17:25,153 - INFO - Embedding pairs
+2025-01-22 16:17:27,750 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:17:29,298 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:17:31,640 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:17:33,559 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:17:34,425 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 16:17:34,425 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 16:17:34,425 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:17:34,426 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 16:17:37,173 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:18:39,130 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 520 "
+2025-01-22 16:18:39,134 - INFO - Retrying request to /embeddings in 0.420072 seconds
+2025-01-22 16:18:41,358 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:18:43,450 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:18:44,037 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:18:44,038 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 16:18:44,066 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 16:18:44,066 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 16:18:44,067 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 16:19:42,961 - INFO - Embedding pairs
+2025-01-22 16:19:45,893 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:47,591 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:49,164 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:50,277 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:50,800 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 16:19:50,800 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:19:50,801 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 16:19:52,817 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:56,370 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:58,398 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:19:59,254 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 16:19:59,286 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 16:19:59,286 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 16:19:59,286 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 16:20:05,130 - INFO - Training model
+2025-01-22 16:20:05,191 - INFO - Val Accuracy score for 0 Fold: 0.8070175438596491
+2025-01-22 16:20:05,193 - INFO - Val Confusion matrix for 0 Fold: [[91 22]
+ [11 47]]
+2025-01-22 16:20:10,497 - INFO - Training model
+2025-01-22 16:20:10,555 - INFO - Val Accuracy score for 1 Fold: 0.8157894736842105
+2025-01-22 16:20:10,557 - INFO - Val Confusion matrix for 1 Fold: [[74 21]
+ [14 81]]
+2025-01-22 16:20:15,752 - INFO - Training model
+2025-01-22 16:20:15,821 - INFO - Val Accuracy score for 2 Fold: 0.8304093567251462
+2025-01-22 16:20:15,822 - INFO - Val Confusion matrix for 2 Fold: [[77 15]
+ [14 65]]
+2025-01-22 16:20:20,984 - INFO - Training model
+2025-01-22 16:20:21,039 - INFO - Val Accuracy score for 3 Fold: 0.8562091503267973
+2025-01-22 16:20:21,040 - INFO - Val Confusion matrix for 3 Fold: [[67  8]
+ [14 64]]
+2025-01-22 16:20:26,241 - INFO - Training model
+2025-01-22 16:20:26,296 - INFO - Val Accuracy score for 4 Fold: 0.7894736842105263
+2025-01-22 16:20:26,297 - INFO - Val Confusion matrix for 4 Fold: [[65 20]
+ [16 70]]
+2025-01-22 16:20:46,509 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:21:05,981 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:21:08,465 - INFO - First Stage Aggregated Val Accuracy: 0.8189252336448598
+2025-01-22 16:21:08,466 - INFO - Second Stage Training Accuracy: 0.8200934579439252
+2025-01-22 16:21:08,469 - INFO - First Stage Aggregated Val Confusion Matrix: [[374  86]
+ [ 69 327]]
+2025-01-22 16:21:08,473 - INFO - Second Stage Training Confusion Matrix: [[374  86]
+ [ 68 328]]
+2025-01-22 16:21:38,962 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:21:43,169 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:24:56,492 - INFO - Embedding pairs
+2025-01-22 16:24:58,991 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:00,409 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:02,310 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:04,051 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:25:04,398 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 16:25:06,897 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:10,005 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:11,500 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:25:12,338 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 16:25:12,338 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 16:25:12,338 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 16:25:12,338 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 16:25:12,338 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 16:25:12,338 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:25:12,339 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 16:25:12,339 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:25:12,339 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:25:12,339 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 16:25:12,366 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 16:25:12,366 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 16:25:12,366 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 16:25:18,374 - INFO - Training model
+2025-01-22 16:25:18,435 - INFO - Val Accuracy score for 0 Fold: 0.8128654970760234
+2025-01-22 16:25:18,436 - INFO - Val Confusion matrix for 0 Fold: [[99 14]
+ [18 40]]
+2025-01-22 16:25:23,881 - INFO - Training model
+2025-01-22 16:25:23,938 - INFO - Val Accuracy score for 1 Fold: 0.8473684210526315
+2025-01-22 16:25:23,939 - INFO - Val Confusion matrix for 1 Fold: [[79 16]
+ [13 82]]
+2025-01-22 16:25:29,293 - INFO - Training model
+2025-01-22 16:25:29,349 - INFO - Val Accuracy score for 2 Fold: 0.7426900584795322
+2025-01-22 16:25:29,350 - INFO - Val Confusion matrix for 2 Fold: [[68 24]
+ [20 59]]
+2025-01-22 16:25:34,645 - INFO - Training model
+2025-01-22 16:25:34,698 - INFO - Val Accuracy score for 3 Fold: 0.8104575163398693
+2025-01-22 16:25:34,699 - INFO - Val Confusion matrix for 3 Fold: [[67  8]
+ [21 57]]
+2025-01-22 16:25:39,978 - INFO - Training model
+2025-01-22 16:25:40,032 - INFO - Val Accuracy score for 4 Fold: 0.8011695906432749
+2025-01-22 16:25:40,034 - INFO - Val Confusion matrix for 4 Fold: [[74 11]
+ [23 63]]
+2025-01-22 16:25:40,633 - INFO - First Stage Aggregated Val Accuracy: 0.8037383177570093
+2025-01-22 16:25:40,634 - INFO - Second Stage Training Accuracy: 0.8049065420560748
+2025-01-22 16:25:40,636 - INFO - First Stage Aggregated Val Confusion Matrix: [[387  73]
+ [ 95 301]]
+2025-01-22 16:25:40,640 - INFO - Second Stage Training Confusion Matrix: [[387  73]
+ [ 94 302]]
+2025-01-22 16:29:05,706 - INFO - Embedding pairs
+2025-01-22 16:29:08,781 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:10,223 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:11,759 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:13,018 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Params: {'C': 0.1}
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.8695652173913043, 0.5652173913043478, 0.8260869565217391, 0.7727272727272727]
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Params: {'C': 1}
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Results: [0.5652173913043478, 0.9130434782608695, 0.5652173913043478, 0.6956521739130435, 0.7272727272727273]
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Params: {'C': 10}
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Params: {'C': 100}
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Results: [0.782608695652174, 0.782608695652174, 0.7391304347826086, 0.782608695652174, 0.7727272727272727]
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:29:13,674 - INFO - Guidance Pipeline - Last Year 2022 - Best Score: 0.7719367588932806
+2025-01-22 16:29:16,459 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:20,033 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:21,769 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 0.1}
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.6086956521739131, 0.6956521739130435, 0.6521739130434783, 0.4782608695652174, 0.6818181818181818]
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 1}
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.782608695652174, 0.8695652173913043, 0.7391304347826086, 0.7272727272727273]
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 10}
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Params: {'C': 100}
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Results: [0.9130434782608695, 0.8695652173913043, 0.8695652173913043, 0.782608695652174, 0.8181818181818182]
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Best Params: {'C': 10}
+2025-01-22 16:29:22,561 - INFO - Employment Pipeline - Last Year 2022 - Best Score: 0.8505928853754939
+2025-01-22 16:29:22,593 - INFO - Employment Pipeline - Last Year 2022 - Train Accuracy: 1.00
+2025-01-22 16:29:22,593 - INFO - Employment Pipeline - Last Year 2022 - Test Accuracy: 0.81
+2025-01-22 16:29:22,595 - INFO - Employment Pipeline - Last Year 2022 - Test Confusion Matrix: [[ 3  1]
+ [ 2 10]]
+2025-01-22 16:29:32,027 - INFO - Training model
+2025-01-22 16:29:32,065 - INFO - Val Accuracy score for 0 Fold: 0.7894736842105263
+2025-01-22 16:29:32,066 - INFO - Val Confusion matrix for 0 Fold: [[96 17]
+ [19 39]]
+2025-01-22 16:29:39,812 - INFO - Training model
+2025-01-22 16:29:39,869 - INFO - Val Accuracy score for 1 Fold: 0.8421052631578947
+2025-01-22 16:29:39,871 - INFO - Val Confusion matrix for 1 Fold: [[77 18]
+ [12 83]]
+2025-01-22 16:29:47,010 - INFO - Training model
+2025-01-22 16:29:47,033 - INFO - Val Accuracy score for 2 Fold: 0.8128654970760234
+2025-01-22 16:29:47,034 - INFO - Val Confusion matrix for 2 Fold: [[77 15]
+ [17 62]]
+2025-01-22 16:29:52,994 - INFO - Training model
+2025-01-22 16:29:53,013 - INFO - Val Accuracy score for 3 Fold: 0.8104575163398693
+2025-01-22 16:29:53,015 - INFO - Val Confusion matrix for 3 Fold: [[65 10]
+ [19 59]]
+2025-01-22 16:29:58,821 - INFO - Training model
+2025-01-22 16:29:58,843 - INFO - Val Accuracy score for 4 Fold: 0.7485380116959064
+2025-01-22 16:29:58,844 - INFO - Val Confusion matrix for 4 Fold: [[61 24]
+ [19 67]]
+2025-01-22 16:29:59,392 - INFO - First Stage Aggregated Val Accuracy: 0.8014018691588785
+2025-01-22 16:29:59,393 - INFO - Second Stage Training Accuracy: 0.8084112149532711
+2025-01-22 16:29:59,396 - INFO - First Stage Aggregated Val Confusion Matrix: [[376  84]
+ [ 86 310]]
+2025-01-22 16:29:59,398 - INFO - Second Stage Training Confusion Matrix: [[376  84]
+ [ 80 316]]
