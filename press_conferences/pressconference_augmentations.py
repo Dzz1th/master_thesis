@@ -125,6 +125,30 @@ async def generate_pairs():
     with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/test_pairs_analysis.json", "w") as f:
         json.dump(test_pairs_results, f)
 
+async def generate_pairs_yoy():
+    qa_df = pd.read_csv("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_data_labeled.csv")
+
+    years_results = {}
+    qa_df['date'] = pd.to_datetime(qa_df['date'])
+    years = qa_df['date'].dt.year.unique()
+    for year in years:
+        years_results[int(year)] = {}
+        year_df = qa_df[qa_df['date'].dt.year == year]
+        year_pairs = generate_pairs_dataset(year_df)
+        tasks = [compare_transcripts(year_pairs[i][0], year_pairs[i][1]) for i in range(len(year_pairs))]
+    
+        logging.info(f"Generating train pairs for year {year}")
+        # Use tqdm to monitor the progress of the tasks
+        results = await tqdm.gather(*tasks, desc="Processing Transcripts", total=len(tasks))
+
+        for result in results:
+            years_results[int(year)][json.dumps(result[0])] = result[1]
+
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/years_pairs_analysis.json", "w") as f:
+        json.dump(years_results, f)
+
+
+
 
 class FilterResponse(BaseModel):
     score: float = Field(description="Score indicating how much more hawkish/dovish the first press conference is compared to the second one")
@@ -185,5 +209,35 @@ async def filter_pairs():
     with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/test_pairs_ranking.json", "w") as f:
         json.dump(test_pairs_results, f)
 
+async def filter_pairs_yoy():
+    years_results = json.load(open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/years_pairs_analysis.json"))
+
+    for year in years_results:
+        pairs_list = list(years_results[year].keys())
+        tasks = [get_score(years_results[year][pairs_list[i]]) for i in range(len(pairs_list))]
+        results = await tqdm.gather(*tasks, desc="Processing Transcripts", total=len(tasks))
+
+        for i in range(len(results)):
+            years_results[year][pairs_list[i]] = results[i]
+
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/years_pairs_ranking.json", "w") as f:
+        json.dump(years_results, f)
+
+
+summary_augmentation_prompt = """
+    You are an expert in macroeconomics and central bank policy.
+    You are given a set of phrases from a FED press conference transcript.
+    These phrases describe the stance of the FED in this press conference. 
+    Your task is to generate a same set of phrases, that could describe the stance of the FED in this press conference if it was more {stance}.
+    Make sure that the new set of phrases is coherent with the original set of phrases and reflect the change in the stance of the FED.
+    You should return only a list of phrases.
+
+    Original phrases:
+    {phrases}
+
+    Your answer:
+"""
+
+
 if __name__ == "__main__":
-    asyncio.run(filter_pairs())
+    asyncio.run(filter_pairs_yoy())

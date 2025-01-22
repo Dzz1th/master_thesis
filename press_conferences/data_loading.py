@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import logging
 import os
-
+import random
 
 from sklearn.model_selection import train_test_split
 
@@ -143,11 +143,127 @@ def load_pre_splited_pairs(validation_size: float = 0.2, random_seed = None):
 
     return train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels
 
-
-def load_triplets_data(test_size: float = 0.25, random_seed = None):
+def load_time_grouped_pairs():
     qa_df = pd.read_csv("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_data_labeled.csv")
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/years_pairs_ranking.json", "r") as f:
+        years_pairs_ranking = json.load(f)
+        for year, pairs in years_pairs_ranking.items():
+            years_pairs_ranking[year] = {tuple(json.loads(key)): value for key, value in pairs.items()}
+            years_pairs_ranking[year] = generate_pairs_ranking(qa_df, years_pairs_ranking[year])
+
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/text_embeddings.json", "r") as f:
+        data = json.load(f)
+
+    embeddings = data['embeddings']
+    embeddings = {int(key): value for key, value in embeddings.items()}
+
+    text_idxs = data['text_idxs']
+    text_idxs = {key: int(value) for key, value in text_idxs.items()} 
+
+    text_to_embeddings = {text: embeddings[idx] for text, idx in text_idxs.items()}
+
+    yearly_data = []
+    for year in years_pairs_ranking:
+        year_pairs, year_labels = [], []
+        for pair, value in years_pairs_ranking[year].items():
+            year_pairs.append((text_to_embeddings[pair[0]], text_to_embeddings[pair[1]]))
+            year_labels.append(value)
+
+        yearly_data.append((year_pairs, year_labels))
+
+    return yearly_data
+
+def load_introductions_years_pairs_ranking():
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/introductions_years_pairs_ranking.json", "r") as f:
+        pairs_ranking = json.load(f)
+        for year, pairs in pairs_ranking.items():
+            pairs_ranking[year] = {tuple(json.loads(key)): value for key, value in pairs.items()}
+
+    with open("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/introductions_embeddings.json", "r") as f:
+        embeddings = json.load(f)
+
+    yearly_data = []
+    for year, pairs in pairs_ranking.items():
+        objects, labels = [], []
+        for pair, value in pairs.items():
+            objects.append((embeddings[pair[0]], embeddings[pair[1]]))
+            labels.append(value)
+
+        yearly_data.append((objects, labels))
+
+    return yearly_data
+
+
+def generate_pairs_ranking(qa_df, pairs_ranking):
+    result_pairs_ranking = {}
+
+    for pair, value in pairs_ranking.items():
+        try:
+            if value == 1:
+                higher_text = pair[0]
+                lower_text = pair[1]
+            else:
+                lower_text = pair[0]
+                higher_text = pair[1]
+                
+            higher_text_date = qa_df.loc[qa_df['text'] == higher_text]['date'].values[0]
+            lower_text_date = qa_df.loc[qa_df['text'] == lower_text]['date'].values[0]
+
+            higher_text_hawkish = qa_df.loc[(qa_df['date'] == higher_text_date) & (qa_df['shift'] == 'hawkish')]['text'].values[0]
+            higher_text_dovish = qa_df.loc[(qa_df['date'] == higher_text_date) & (qa_df['shift'] == 'dovish')]['text'].values[0]
+
+            lower_text_hawkish = qa_df.loc[(qa_df['date'] == lower_text_date) & (qa_df['shift'] == 'hawkish')]['text'].values[0]
+            lower_text_dovish = qa_df.loc[(qa_df['date'] == lower_text_date) & (qa_df['shift'] == 'dovish')]['text'].values[0]
+
+            coinflip = random.random() > 0.5 
+
+            if coinflip:
+                #Infered Pairs for higher and lower texts
+                result_pairs_ranking[(higher_text_hawkish, lower_text)] =  abs(value)
+                result_pairs_ranking[(higher_text, lower_text_dovish)] =  abs(value)
+                result_pairs_ranking[(higher_text_hawkish, lower_text_dovish)] =  1
+
+            else:
+                result_pairs_ranking[(lower_text, higher_text_hawkish)] =  -1 * abs(value)
+                result_pairs_ranking[(lower_text_dovish, higher_text)] =  -1 * abs(value)
+                result_pairs_ranking[(lower_text_dovish, higher_text_hawkish)] =  -1
+
+            #Original Pairs from the triplets 
+            coinflip = random.random() > 0.5 
+            if coinflip:
+                result_pairs_ranking[(higher_text_hawkish, higher_text)] =  0.5
+                result_pairs_ranking[(higher_text, higher_text_dovish)] =  0.5
+                result_pairs_ranking[(higher_text_hawkish, higher_text_dovish)] =  1
+            else:
+                result_pairs_ranking[(higher_text, higher_text_hawkish)] =  -0.5
+                result_pairs_ranking[(higher_text_dovish, higher_text)] =  -0.5
+                result_pairs_ranking[(higher_text_dovish, higher_text_hawkish)] =  -1
+
+            coinflip = random.random() > 0.5 
+            if coinflip:
+                result_pairs_ranking[(lower_text_hawkish, lower_text)] =  0.5
+                result_pairs_ranking[(lower_text, lower_text_dovish)] =  0.5
+                result_pairs_ranking[(lower_text_hawkish, lower_text_dovish)] =  1
+            else:
+                result_pairs_ranking[(lower_text, lower_text_hawkish)] =  -0.5
+                result_pairs_ranking[(lower_text_dovish, lower_text)] =  -0.5
+                result_pairs_ranking[(lower_text_dovish, lower_text_hawkish)] =  -1
+
+
+        except BaseException as exc: #We dodge exceptions for blocks where some augmentations are missing
+            pass 
+
+    return result_pairs_ranking
+
+def load_triplets_data(date_from: str, date_to: str):
+    qa_df = pd.read_csv("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_data_labeled.csv")
+    qa_df = qa_df[(qa_df['date'] >= date_from) & (qa_df['date'] <= date_to)]
+
     qa_embeddings = np.load("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_embeddings.npy")
-    
+    qa_embeddings = qa_embeddings[qa_df.index]
+
+    qa_df.reset_index(drop=True, inplace=True)
+
     def get_triplet(group):
         if (group['shift'] == 'hawkish').sum() == 1 and \
             (group['shift'] == 'dovish').sum() == 1 and \
@@ -167,9 +283,13 @@ def load_triplets_data(test_size: float = 0.25, random_seed = None):
             return None
 
     triplets = qa_df.groupby("date").apply(get_triplet).dropna().tolist()
+    return triplets 
 
-    train_triplets, test_triplets = train_test_split(triplets, test_size=test_size, random_state=random_seed)
-    return train_triplets, test_triplets 
+
+def load_raw_qa_data():
+    qa_df = pd.read_csv("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_data_labeled.csv")
+    qa_embeddings = np.load("/Users/dzz1th/Job/mgi/Soroka/data/qa_data/qa_embeddings.npy")
+    return qa_df, qa_embeddings
 
 
 if __name__ == "__main__":

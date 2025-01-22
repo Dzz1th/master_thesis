@@ -10,14 +10,21 @@ from typing import List, Tuple
 from torch.utils.data import Dataset, DataLoader
 
 from sklearn.model_selection import ParameterGrid
+from sklearn.manifold import TSNE
+import umap
 
-from models.models import TripletLinearClassifier, PairwiseLinearClassifier
+from models.models import TripletLinearClassifierNLayers, PairwiseLinearClassifier
 from models.loss import CustomRankingLoss
+
+from metrics import pairs_accuracy, pairs_errors_decomposed, analyze_triplet_errors
 
 from data_loading import (load_pairs_data, 
                          load_pairs_data_stratified, 
                          load_triplets_data,
-                         load_pre_splited_pairs)
+                         load_pre_splited_pairs,
+                         load_raw_qa_data,
+                         load_time_grouped_pairs,
+                         load_introductions_years_pairs_ranking)
 
 import time 
 import logging
@@ -35,195 +42,7 @@ embeddings = OpenAIEmbeddings(
 )
 
 def truncate_pairs(pairs, truncate_size):
-    return [(pair[0][:truncate_size], pair[1][:truncate_size]) for pair in pairs]
-
-def truncate_triplets(triplets, truncate_size):
-    return [(triplet[0][:truncate_size], triplet[1][:truncate_size], triplet[2][:truncate_size]) for triplet in triplets]
-
-
-def pca_pairs(pairs: List[tuple], n_components: int):
-    all_pairs = np.array([pair[0] for pair in pairs] + [pair[1] for pair in pairs])
-    pca = PCA(n_components=n_components)
-    pca.fit(all_pairs)
-    return pca
-
-def pca_transform_pairs(pairs: List[tuple], pca: PCA):
-    all_pairs = np.array([pair[0] for pair in pairs] + [pair[1] for pair in pairs])
-    transformed_pairs = pca.transform(all_pairs)
-    first_half = transformed_pairs[:len(pairs)]
-    second_half = transformed_pairs[len(pairs):]
-    transformed_pairs = [(first_half[i], second_half[i]) for i in range(len(pairs))]
-
-    return transformed_pairs
-
-def pca_transform_triplets(triplets, pca):
-    all_embeddings = np.array([triplet[0] for triplet in triplets] + [triplet[1] for triplet in triplets] + [triplet[2] for triplet in triplets])
-    transformed_triplets = pca.transform(all_embeddings)
-    hawkish, neutral, dovish = transformed_triplets[:len(triplets)], transformed_triplets[len(triplets):len(triplets)*2], transformed_triplets[len(triplets)*2:]
-    transformed_triplets = [(hawkish[i], neutral[i], dovish[i]) for i in range(len(triplets))]
-
-    return transformed_triplets
-
-def ranking_loss(f_hawkish, f_dovish, f_anchor, margin=1.0):
-    loss = torch.relu(margin - (f_hawkish - f_anchor)) + torch.relu(margin - (f_dovish - f_anchor))
-    return loss.sum()
-
-def accuracy(predictions, labels):
-    """
-        Predictions are a tensor of shape (3, n) of 3 predictions scores:
-            hawkish, neutral, dovish.
-        If label is 1, we check prediction for hawkish and compare it to the label, 
-        if label is 0, we check prediction for dovish and compare it to the label.
-
-    """
-    results = []
-    for i in range(len(labels)):
-        if labels[i] == 1:
-            results.append(predictions[0, i] > 0)
-        if labels[i] == 0:
-            results.append(predictions[2, i] < 0)
-    return results
-
-def main_triplet_accuracy(predictions):
-    """
-        Predictions are a tensor of shape (3, n) of 3 predictions scores:
-            hawkish, neutral, dovish.
-        We check whether hawkish > dovish.
-
-        We check whether hawkish > dovish for an entire triplet.
-    """
-    accuracy_tensor = (predictions[0] > predictions[2])
-    accuracy_tensor = accuracy_tensor.float()
-    return accuracy_tensor.mean()
-
-def triplet_accuracy(predictions):
-    """
-        Predictions are a tensor of shape (3, n) of 3 predictions scores:
-            hawkish, neutral, dovish.
-        We check whether hawkish > neutral > dovish.
-
-        We check exact order for an entire triplet.
-        
-    """
-    accuracy_tensor = (predictions[0] > predictions[1]) & (predictions[1] > predictions[2])
-    accuracy_tensor = accuracy_tensor.float()
-    return accuracy_tensor.mean()
-
-def analyze_triplet_errors(predictions):
-    hawkish = predictions[0]
-    neutral = predictions[1]
-    dovish = predictions[2]
-    
-    # Count different types of ordering violations
-    hawkish_neutral = (hawkish <= neutral).sum().item()
-    neutral_dovish = (neutral <= dovish).sum().item()
-    hawkish_dovish = (hawkish <= dovish).sum().item()
-    
-    total_triplets = len(hawkish)
-    
-    logging.info(f"Error Analysis:")
-    logging.info(f"Hawkish <= Neutral: {hawkish_neutral}/{total_triplets} ({hawkish_neutral/total_triplets:.2%})")
-    logging.info(f"Neutral <= Dovish: {neutral_dovish}/{total_triplets} ({neutral_dovish/total_triplets:.2%})")
-    logging.info(f"Hawkish <= Dovish: {hawkish_dovish}/{total_triplets} ({hawkish_dovish/total_triplets:.2%})")
-
-def score_pairs(scores, labels):
-    """
-        Scores - tensor of shape (n) of the difference between the first and second texts in pairs
-        Labels - tensor of shape (n) of labels for the pairs
-    """
-    diff = scores
-    accurate = torch.zeros_like(labels, dtype=torch.bool)
-    
-    # Check conditions for each label
-    # For label == 0.5 or -0.5
-    mask_05 = (labels == 0.5) | (labels == -0.5)
-    accurate[mask_05] = ((diff * labels.sign())[mask_05] >= 0) & ((diff * labels.sign())[mask_05] <= 1.0)
-    
-    # For label == 1 or -1
-    mask_1 = (labels == 1) | (labels == -1)
-    accurate[mask_1] = (diff * labels.sign())[mask_1] >= 1.0
-    
-    # For label == 0
-    mask_0 = (labels == 0)
-    accurate[mask_0] = (diff[mask_0] >= -0.5) & (diff[mask_0] <= 0.5)
-    
-    # Compute accuracy as the mean of accurate pairs
-    accuracy = accurate.float().mean().item()
-    
-    return accuracy
-
-def analyze_pair_errors(scores, labels, padding=0.25):
-    """
-    Analyze errors in pair scoring and print misclassified types.
-    
-    Args:
-        scores - tensor of shape (n) of the difference between the first and second texts in pairs
-        labels - tensor of shape (n) of the labels for the pairs
-    """
-    # Calculate the difference
-    diff = scores
-
-    #Hard Errors
-    hard_05 = 0
-    hard_1 = 0
-    hard_0 = 0
-    
-    # Initialize counters for misclassified types
-    soft_05 = 0
-    soft_1 = 0
-    soft_0 = 0
-    
-    # Check conditions for each label
-    for i in range(len(labels)):
-        if labels[i] in [0.5, -0.5]:
-            if diff[i] * labels[i].sign() < 0 or diff[i] * labels[i].sign() > 1:
-                hard_05 += 1
-                #logging.info(f"Pair {i} with label {labels[i]} hard error: diff = {diff[i].item()}")
-            else:
-                if not (0.5 - padding <= diff[i] * labels[i].sign() <= 0.5 + padding):
-                    soft_05 += 1
-                    #logging.info(f"Pair {i} with label {labels[i]} soft error: diff = {diff[i].item()}")
-        
-        elif labels[i] in [1, -1]:
-            if diff[i] * labels[i].sign() < 0.0:
-                hard_1 += 1
-                #logging.info(f"Pair {i} with label {labels[i]} hard error: diff = {diff[i].item()}")
-            else:
-                if not (diff[i] * labels[i].sign() > 1.0):
-                    soft_1 += 1
-                    #logging.info(f"Pair {i} with label {labels[i]} soft error: diff = {diff[i].item()}")
-        
-        elif labels[i] == 0:
-            if diff[i] * labels[i].sign() > 0.5:
-                hard_0 += 1
-                #logging.info(f"Pair {i} with label {labels[i]} hard error: diff = {diff[i].item()}")
-            if not (-padding <= diff[i] <= padding):
-                soft_0 += 1
-                #logging.info(f"Pair {i} with label {labels[i]} soft error: diff = {diff[i].item()}")
-    
-    total_05 = len([label for label in labels if label in [0.5, -0.5]])
-    total_1 = len([label for label in labels if label in [1, -1]])
-    total_0 = len([label for label in labels if label == 0])
-    # Print summary of misclassifications
-    logging.info(f"Total pairs: {len(labels)}")
-    logging.info(f"Total hard errors with label 0.5 or -0.5: {hard_05} Out of {total_05}")
-    logging.info(f"Total hard errors with label 1 or -1: {hard_1} Out of {total_1}")
-    logging.info(f"Total hard errors with label 0: {hard_0} Out of {total_0}")
-
-    logging.info(f"Total soft errors with label 0.5 or -0.5: {soft_05} Out of {total_05}")
-    logging.info(f"Total soft errors with label 1 or -1: {soft_1} Out of {total_1}")
-    logging.info(f"Total soft errors with label 0: {soft_0} Out of {total_0}")
-
-    return {
-        'hard_05': hard_05,
-        'hard_1': hard_1,
-        'hard_0': hard_0,
-        'soft_05': soft_05,
-        'soft_1': soft_1,
-        'soft_0': soft_0
-    }
-
-
+    return [(pair[0][truncate_size[0]:truncate_size[1]], pair[1][truncate_size[0]:truncate_size[1]]) for pair in pairs]
 
 class TripletDataset(Dataset):
     def __init__(self, triplets):
@@ -268,12 +87,13 @@ def train_model_with_early_stopping(train_loader, test_loader,
                                     patience=300,
                                     n_layers=1,
                                     loss_weights=[1, 1],
-                                    model_type: t.Literal['default', 'pairwise'] = 'default'):
+                                    model_type: t.Literal['default', 'difference', 'pairwise'] = 'default'):
     
-    if model_type == 'default':
-        model = TripletLinearClassifier(input_dim=input_dim, num_layers=n_layers)
-    elif model_type == 'pairwise':
+    
+    if model_type == 'pairwise':
         model = PairwiseLinearClassifier(input_dim=input_dim, n_layers=n_layers)
+    else:
+        model = TripletLinearClassifierNLayers(input_dim=input_dim, num_layers=n_layers)
 
     criterion = CustomRankingLoss(loss_weights=loss_weights)
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
@@ -286,6 +106,10 @@ def train_model_with_early_stopping(train_loader, test_loader,
         total_loss = 0
         for batch in train_loader:
             first, second, label = batch # dataset of pair and label
+
+            if model_type == 'difference':
+                doc_diff = first - second
+                diff = model(doc_diff)
 
             if model_type == 'default':
                 f_first = model(first)
@@ -315,6 +139,10 @@ def train_model_with_early_stopping(train_loader, test_loader,
                 elif model_type == 'pairwise':
                     diff = model(torch.cat((first, second), dim=1))
 
+                elif model_type == 'difference':
+                    doc_diff = first - second
+                    diff = model(doc_diff)
+
                 val_loss += criterion(diff, label)
 
             # Log the losses
@@ -335,7 +163,10 @@ def train_model_with_early_stopping(train_loader, test_loader,
     model.load_state_dict(best_model)
     return model
 
-def compute_metrics(model, data_loader, model_type: t.Literal['default', 'pairwise'] = 'default'):
+def compute_metrics(model, 
+                    data_loader,
+                     model_type: t.Literal['default', 'pairwise', 'difference'] = 'default',
+                     metrics_fns: t.List[t.Callable] = []):
     model.eval()
     all_predictions = []
     all_labels = []
@@ -351,6 +182,10 @@ def compute_metrics(model, data_loader, model_type: t.Literal['default', 'pairwi
             elif model_type == 'pairwise':
                 diff = model(torch.cat((first, second), dim=1))
 
+            elif model_type == 'difference':
+                doc_diff = first - second
+                diff = model(doc_diff)
+
             predictions = diff
             all_predictions.append(predictions)
             all_labels.append(label)
@@ -358,50 +193,71 @@ def compute_metrics(model, data_loader, model_type: t.Literal['default', 'pairwi
     all_predictions = torch.cat(all_predictions, dim=0)
     all_labels = torch.cat(all_labels)
 
-    score_acc = score_pairs(all_predictions, all_labels)
+    metrics = {}
+    for metric_fn in metrics_fns:
+        metrics[metric_fn.__name__] = metric_fn(all_predictions, all_labels)
 
-    errors_analysis = analyze_pair_errors(all_predictions, all_labels)
+    return metrics
 
-    return {
-        'score_acc': score_acc,
-        **errors_analysis
-    }
+
+def train_reducer(train_embeddings, 
+                  train_labels,
+                    method, truncate_size, **params):
+    """
+        Train a dimensionality reduction model.
+        train_labels are required for UMAP with labels.
+    """
+    if method == 'pca':
+        pca = PCA(n_components=truncate_size[1])
+        pca.fit(train_embeddings)
+        return pca
+    
+    elif method == 'umap':
+        umap_compresser = umap.UMAP(n_components=truncate_size[1], **params)
+        umap_compresser.fit(train_embeddings)
+        return umap_compresser
+
+def reduce_pairs(pairs, reducer, truncate_size):
+    embeddings = [pair[0] for pair in pairs] + [pair[1] for pair in pairs]
+    results = reducer.transform(embeddings)[:, truncate_size[0]:truncate_size[1]]
+
+    first_half = results[:len(pairs)]
+    second_half = results[len(pairs):]
+
+    return [(first_half[i], second_half[i]) for i in range(len(pairs))]
 
 
 def pipeline(
         train_pairs: List[tuple], 
         train_labels: List[int],
-        val_pairs: List[tuple], 
-        val_labels: List[int],
         test_pairs: List[tuple],
         test_labels: List[int],
-        model_type: t.Literal['default', 'pairwise'] = 'default',
-        pca_components: int = 500,
-        truncate_size: int = 2048,
+        model_type: t.Literal['default', 'difference', 'pairwise'] = 'default',
+        reducer: t.Optional[t.Any] = None,
+        reduction_truncate_size: tuple = (0, 50),
+        truncate_size: tuple = (0, 2048),
         epochs=2500, 
         patience=100,
         lr=3e-2,
         n_layers=1,
-        loss_weights=[1, 1],):
+        loss_weights=[1, 1],
+        **kwargs):
     
     train_pairs = truncate_pairs(train_pairs, truncate_size)
-    val_pairs = truncate_pairs(val_pairs, truncate_size)
     test_pairs = truncate_pairs(test_pairs, truncate_size)
-    
-    input_dim = truncate_size
+    input_dim = truncate_size[1] - truncate_size[0]
 
-    if pca_components is not None:
-        pca = pca_pairs(train_pairs, n_components=pca_components)
-        train_pairs = pca_transform_pairs(train_pairs, pca)
-        val_pairs = pca_transform_pairs(val_pairs, pca)
-        test_pairs = pca_transform_pairs(test_pairs, pca)
-        input_dim = pca_components
+    
+    if reducer is not None:
+        train_pairs = reduce_pairs(train_pairs, reducer, reduction_truncate_size)
+        test_pairs = reduce_pairs(test_pairs, reducer, reduction_truncate_size)
+
+        input_dim = reduction_truncate_size[1] - reduction_truncate_size[0]
 
     train_loader = create_dataloader(train_pairs, train_labels)
-    val_loader = create_dataloader(val_pairs, val_labels)
     test_loader = create_dataloader(test_pairs, test_labels)
 
-    model = train_model_with_early_stopping(train_loader, val_loader, 
+    model = train_model_with_early_stopping(train_loader, test_loader, 
                                             input_dim=input_dim,
                                             epochs=epochs, 
                                             lr=lr,
@@ -409,20 +265,15 @@ def pipeline(
                                             n_layers=n_layers,
                                             loss_weights=loss_weights,
                                             model_type=model_type)
+
+    test_metrics = compute_metrics(model, test_loader, model_type=model_type, metrics_fns=[pairs_accuracy, pairs_errors_decomposed])
+    logging.info(f"Test Accuracy: {test_metrics['pairs_accuracy']:.4f}")
+    logging.info(f"Test Hard Errors: {test_metrics['pairs_errors_decomposed']['hard_05']}, {test_metrics['pairs_errors_decomposed']['hard_1']}, {test_metrics['pairs_errors_decomposed']['hard_0']}")
+    logging.info(f"Test Soft Errors: {test_metrics['pairs_errors_decomposed']['soft_05']}, {test_metrics['pairs_errors_decomposed']['soft_1']}, {test_metrics['pairs_errors_decomposed']['soft_0']}")
+
+    return model, test_metrics
     
-    val_metrics = compute_metrics(model, val_loader, model_type=model_type)
-
-    logging.info(f"Validation Accuracy: {val_metrics['score_acc']:.4f}")
-    logging.info(f"Validation Hard Errors: {val_metrics['hard_05']}, {val_metrics['hard_1']}, {val_metrics['hard_0']}")
-    logging.info(f"Validation Soft Errors: {val_metrics['soft_05']}, {val_metrics['soft_1']}, {val_metrics['soft_0']}")
-
-    test_metrics = compute_metrics(model, test_loader, model_type=model_type)
-    logging.info(f"Test Accuracy: {test_metrics['score_acc']:.4f}")
-    logging.info(f"Test Hard Errors: {test_metrics['hard_05']}, {test_metrics['hard_1']}, {test_metrics['hard_0']}")
-    logging.info(f"Test Soft Errors: {test_metrics['soft_05']}, {test_metrics['soft_1']}, {test_metrics['soft_0']}")
-
-
-    return model, val_metrics,test_metrics
+    
 
 def predict_triplets(triplets, model):
     hawkish = [triplet[0] for triplet in triplets]
@@ -476,11 +327,12 @@ parameters_grid = {
 
 
 training_config = {
-    'model_type': 'pairwise',
-    "pca_components": None, 
-    "truncate_size": 3072,
+    "model_type": "pairwise",
+    "reduction_method": None,
+    "reduction_truncate_size": (0, 50),
+    "truncate_size": [0, 3072],
     "epochs": 1500,
-    "patience": 100,
+    "patience": 50,
     "lr": 1e-2,
     "n_layers": 2,
     "loss_weights": [1, 1] #weigth of 0.5 loss and 1.0 loss
@@ -490,9 +342,71 @@ grid = ParameterGrid(parameters_grid)
 
 if __name__ == "__main__":
     # Load data
-    train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels = load_pre_splited_pairs(validation_size=0.25)
+    # data = load_time_grouped_pairs()
+    
+    # metrics = {}
+    # base_index = 5 #2011-2015 is the base training set
+    # train_data = data[0:11]
+    # test_data = data[11:]
 
-    model, val_metrics, test_metrics = pipeline(train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels, **training_config)
+    # train_pairs = sum([pairs for pairs, _ in train_data], [])
+    # train_labels = sum([labels for _, labels in train_data], [])
+
+    # test_pairs = sum([pairs for pairs, _ in test_data], [])
+    # test_labels = sum([labels for _, labels in test_data], [])
+
+    # train_embeddings = [pair[0] for pair in train_pairs] + [pair[1] for pair in train_pairs]
+    # reducer = None
+    # if training_config['reduction_method'] is not None:
+    #     reducer = train_reducer(train_embeddings, train_labels, training_config['reduction_method'], training_config['reduction_truncate_size'])
+    
+    # model, test_metrics = pipeline(train_pairs, train_labels, test_pairs, test_labels, reducer=reducer, **training_config)
+    # logging.info(f"Test Metrics: {test_metrics}")
+
+    # ___________
+    
+    # for i in range(0, len(data)-base_index):
+    #     train_data = data[0+i:base_index+i]
+    #     test_data = data[base_index+i]
+
+    #     train_pairs = sum([pairs for pairs, _ in train_data], [])
+    #     train_labels = sum([labels for _, labels in train_data], [])
+
+    #     train_embeddings = [pair[0] for pair in train_pairs] + [pair[1] for pair in train_pairs]
+    #     reducer = None
+    #     if training_config['reduction_method'] is not None:
+    #         reducer = train_reducer(train_embeddings, train_labels, training_config['reduction_method'], training_config['reduction_truncate_size'])
+
+    #     test_pairs = test_data[0]
+    #     test_labels = test_data[1]
+
+    #     logging.info(f"Start Training for {2011+i} - {2011+base_index+i} years")
+    #     model, test_metrics = pipeline(train_pairs, train_labels, test_pairs, test_labels, reducer=reducer, **training_config)
+    #     metrics[f"{2011+i}"] = test_metrics
+
+    # logging.info(f"Metrics: {metrics}")
+
+    #train_idx, test_idx = qa_df[qa_df['date'] <= '2020-01-01'].index, qa_df[qa_df['date'] > '2020-01-01'].index
+
+    # reducer = None
+    # if training_config['reduction_method'] is not None:
+    #     reducer = train_reducer(train_embeddings, train_labels, training_config['reduction_method'], training_config['reduction_truncate_size'])
+
+    train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels = load_pre_splited_pairs(validation_size=0.05)
+
+    triplets = load_triplets_data(date_from='2020-01-01', date_to='2025-01-01')
+
+    reducer = None
+    train_embeddings = [pair[0] for pair in train_pairs] + [pair[1] for pair in train_pairs]
+    if training_config['reduction_method'] is not None:
+        reducer = train_reducer(train_embeddings, train_labels, training_config['reduction_method'], training_config['reduction_truncate_size'])
+
+    model, test_metrics = pipeline(train_pairs, train_labels, test_pairs, test_labels, reducer=reducer, **training_config)
+
+    predictions = predict_triplets(triplets, model)
+    triplet_errors = analyze_triplet_errors(predictions)
+    logging.info(f"Triplet Errors: {triplet_errors}")
+
     # results = {}
     # for params in tqdm(grid):
     #     model, val_metrics, test_metrics = pipeline(train_pairs, train_labels, val_pairs, val_labels, test_pairs, test_labels, **params, **base_parameters)
