@@ -542,7 +542,7 @@ def text_to_index_pairs(pairs, df):
         index_pairs.append((df[df['sentiment_summary'] == pair[0]].index[0], df[df['sentiment_summary'] == pair[1]].index[0])) 
     return index_pairs
 
-def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
+def sentiment_pipeline(last_year: int = 2024, base_year: int = 2018):
     np.random.seed(42)
     random.seed(42)
 
@@ -604,8 +604,8 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
         train_pairs, train_ranks = prune_cycles(train_pairs, train_ranks)
         val_pairs, val_ranks = prune_cycles(val_pairs, val_ranks)
 
-        train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=False)
-        val_first_features, val_second_features = data_pipeline(train_df, val_pairs, "val_embeddings", exclude_embeddings=True, forget_embeddings=False) 
+        train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=True)
+        val_first_features, val_second_features = data_pipeline(train_df, val_pairs, "val_embeddings", exclude_embeddings=True, forget_embeddings=True) 
 
         dbtrain = data_to_xgboost_format(train_first_features, train_second_features, train_ranks)
         dbval = data_to_xgboost_format(val_first_features, val_second_features, val_ranks)
@@ -618,8 +618,7 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
         params = {
             'max_depth': 3,
             'eval_metric': 'error',
-            'objective': 'rank:pairwise',
-            'random_state': 42
+            'objective': 'rank:pairwise'
         }
 
         ranker = xgb.train(params, dbtrain, num_rounds, watchlist, early_stopping_rounds=10)
@@ -640,7 +639,7 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
         second_stage_y += val_labels
 
 
-    second_stage_first_features, second_stage_second_features = get_embeddings(second_stage_X, "second_stage_embeddings", forget_embeddings=False)
+    second_stage_first_features, second_stage_second_features = get_embeddings(second_stage_X, "second_stage_embeddings", forget_embeddings=True)
     second_stage_diff = second_stage_first_features - second_stage_second_features
 
     second_stage_w = train_second_stage_model(second_stage_diff, second_stage_xgb_diffs, second_stage_y)
@@ -662,13 +661,13 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     train_ranks = asyncio.run(rank_press_conferences(train_pairs, limit_rates))
 
     train_pairs, train_ranks = prune_cycles(train_pairs, train_ranks)
-    train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=False)
+    train_first_features, train_second_features = data_pipeline(train_df, train_pairs, "train_embeddings", exclude_embeddings=True, forget_embeddings=True)
     dbtrain = data_to_xgboost_format(train_first_features, train_second_features, train_ranks)
 
     #test_pairs, test_ranks = prune_cycles(test_pairs, test_ranks)
     index_pairs = text_to_index_pairs(test_pairs, test_df)
 
-    test_first_features, test_second_features = data_pipeline(test_df, test_pairs, "test_embeddings", exclude_embeddings=True, forget_embeddings=False)
+    test_first_features, test_second_features = data_pipeline(test_df, test_pairs, "test_embeddings", exclude_embeddings=True, forget_embeddings=True)
     dbtest = data_to_xgboost_format(test_first_features, test_second_features, test_ranks)
 
     best_xgb = xgb.train(params, dbtrain, num_rounds)
@@ -678,7 +677,7 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     xgb_test_differences = xgb_test_predictions[first_idxs] - xgb_test_predictions[second_idxs]
     xgb_test_probs = 1 / (1 + np.exp(- xgb_test_differences))
 
-    test_first_features, test_second_features = get_embeddings(test_pairs, "test_embeddings", forget_embeddings=False)
+    test_first_features, test_second_features = get_embeddings(test_pairs, "test_embeddings", forget_embeddings=True)
     test_diff = test_first_features - test_second_features
     test_corrections = np.dot(second_stage_w, test_diff.T)
     test_probs_incorrected = 1 / (1 + np.exp(- xgb_test_differences))
@@ -687,8 +686,11 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     test_labels = dbtest.get_label() 
     test_labels = [test_labels[2*i] for i in range(len(test_labels) // 2)]
 
-    print('Test AUC score incorrected: ', roc_auc_score(test_labels, test_probs_incorrected))
-    print('Test AUC score corrected: ', roc_auc_score(test_labels, test_probs_corrected)) 
+    incorrected_auc = roc_auc_score(test_labels, test_probs_incorrected)
+    corrected_auc = roc_auc_score(test_labels, test_probs_corrected)
+
+    print('Test AUC score incorrected: ', incorrected_auc)
+    print('Test AUC score corrected: ', corrected_auc) 
 
     test_predictions_corrected = [1 if diff > 0.5 else 0 for diff in test_probs_corrected]
     test_predictions_incorrected = [1 if diff > 0.5 else 0 for diff in test_probs_incorrected]
@@ -753,7 +755,23 @@ def sentiment_pipeline(last_year: int = 2022, base_year: int = 2018):
     print('Errors on index : ', np.sum(errors_map, axis=1))
     print('Simulated removal of top 5 documents: ', simulate_removal(errors_map, top_k=5))
     
-    stop = 1
+
+    test_texts = test_df['sentiment_summary'].tolist()
+    test_pairs = [(test_texts[i], test_texts[i]) for i in range(len(test_texts))]
+    xgb_features, _ = data_pipeline(test_df, test_pairs, "test_pred_embeddings", exclude_embeddings=True, forget_embeddings=True)
+    dbtest = xgb.DMatrix(xgb_features)
+    xgb_predictions = best_xgb.predict(dbtest)
+
+    test_embeddings, _ = get_embeddings(test_pairs, "test_pred_embeddings", forget_embeddings=True)
+    adjustments = np.dot(second_stage_w, test_embeddings.T)
+    scores = xgb_predictions
+    if corrected_auc > incorrected_auc:
+        scores += adjustments
+
+    test_df['guidance_score'] = guidance_test_scores
+    test_df['employment_score'] = employment_test_scores
+    test_df['sentiment_scores'] = scores
+    test_df.to_csv(f"/Users/dzz1th/Job/mgi/Soroka/data/qa_data/summarized_data_with_scores_{last_year}.csv", index=False)
 
 
 if __name__ == "__main__":
