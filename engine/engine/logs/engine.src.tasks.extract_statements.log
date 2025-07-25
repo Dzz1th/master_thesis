@@ -1,0 +1,51 @@
+2025-06-10 15:23:05,662 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 15:23:38,557 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 15:23:38,638 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 15:26:25,904 - engine.src.tasks.extract_statements - INFO - Extracted employment statements
+2025-06-10 15:26:26,012 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-10 20:23:14,388 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 20:23:14,460 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 20:25:53,145 - engine.src.tasks.extract_statements - INFO - Extracted employment statements
+2025-06-10 20:25:53,236 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-10 20:51:47,402 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 20:51:47,495 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: employment
+2025-06-10 20:52:47,604 - engine.src.tasks.extract_statements - INFO - Extracted employment statements
+2025-06-10 20:52:47,700 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-10 20:54:07,013 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: inflation
+2025-06-10 20:54:07,095 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: inflation
+2025-06-12 17:05:24,525 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: inflation
+2025-06-12 17:05:24,609 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: inflation
+2025-06-12 17:06:32,350 - engine.src.tasks.extract_statements - INFO - Extracted inflation statements
+2025-06-12 17:06:32,473 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-12 17:09:38,091 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-12 17:09:38,176 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-12 17:17:22,573 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-12 17:17:22,641 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-12 17:18:27,038 - engine.src.tasks.extract_statements - INFO - Extracted interest_rate statements
+2025-06-12 17:18:27,159 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-12 17:18:51,566 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: balance_sheet
+2025-06-12 17:18:51,649 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: balance_sheet
+2025-06-12 17:34:07,884 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: balance_sheet
+2025-06-12 17:34:07,984 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: balance_sheet
+2025-06-12 17:36:01,642 - engine.src.tasks.extract_statements - INFO - Extracted balance_sheet statements
+2025-06-12 17:36:01,738 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-12 17:40:19,508 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-12 17:40:19,594 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-12 17:41:19,705 - engine.src.tasks.extract_statements - INFO - Extracted interest_rate statements
+2025-06-12 17:41:19,812 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-12 19:30:37,524 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: inflation
+2025-06-12 19:30:37,598 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: inflation
+2025-06-12 19:31:37,689 - engine.src.tasks.extract_statements - INFO - Extracted inflation statements
+2025-06-12 19:31:37,786 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-23 16:43:57,220 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-23 16:43:57,308 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: interest_rate
+2025-06-23 16:44:57,398 - engine.src.tasks.extract_statements - INFO - Extracted interest_rate statements
+2025-06-23 16:44:57,511 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv
+2025-06-23 16:55:18,158 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: all
+2025-06-23 16:55:18,243 - engine.src.tasks.extract_statements - INFO - Extracting statements for task: all
+2025-06-23 16:56:18,378 - engine.src.tasks.extract_statements - INFO - Extracted employment statements
+2025-06-23 16:57:18,524 - engine.src.tasks.extract_statements - INFO - Extracted inflation statements
+2025-06-23 16:58:39,742 - engine.src.tasks.extract_statements - INFO - Extracted forward_guidance statements
+2025-06-23 16:59:39,874 - engine.src.tasks.extract_statements - INFO - Extracted interest_rate statements
+2025-06-23 17:00:39,964 - engine.src.tasks.extract_statements - INFO - Extracted balance_sheet statements
+2025-06-23 17:00:40,099 - engine.src.tasks.extract_statements - INFO - Saved extracted statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/extracted_statements.csv

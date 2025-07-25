@@ -1,0 +1,61 @@
+2025-06-12 17:37:41,212 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-12 17:37:41,311 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-12 17:37:41,311 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 16:23:52,967 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 16:23:53,048 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 16:23:53,048 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 16:30:32,880 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 16:30:32,975 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 16:30:32,977 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 17:02:50,518 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 17:02:50,630 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 17:02:50,630 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 17:06:13,211 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 17:06:13,307 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 17:06:13,307 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 17:27:21,440 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 17:27:21,539 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 17:27:21,540 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 17:27:56,586 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 17:27:56,687 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 17:27:56,687 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 17:33:01,748 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: employment
+2025-06-23 17:33:01,845 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: employment
+2025-06-23 17:33:01,845 - engine.src.tasks.rank_statements - INFO - Processing employment.level rankings
+2025-06-23 17:34:51,881 - engine.src.tasks.rank_statements - INFO - Saved 525 ranked pairs to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/ranked_pairs/employment_level_ranked_pairs.json
+2025-06-23 17:34:51,987 - engine.src.tasks.rank_statements - INFO - Processing complete for employment.level
+2025-06-23 17:34:51,987 - engine.src.tasks.rank_statements - INFO - Processing employment.dynamics rankings
+2025-06-23 17:36:23,423 - engine.src.tasks.rank_statements - INFO - Saved 525 ranked pairs to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/ranked_pairs/employment_dynamics_ranked_pairs.json
+2025-06-23 17:36:23,531 - engine.src.tasks.rank_statements - INFO - Processing complete for employment.dynamics
+2025-06-23 17:37:01,597 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-23 17:37:01,707 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: inflation
+2025-06-23 17:37:01,707 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-23 17:38:32,410 - engine.src.tasks.rank_statements - INFO - Saved 525 ranked pairs to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/ranked_pairs/inflation_level_ranked_pairs.json
+2025-06-23 17:38:32,515 - engine.src.tasks.rank_statements - INFO - Processing complete for inflation.level
+2025-06-23 17:38:32,515 - engine.src.tasks.rank_statements - INFO - Processing inflation.dynamics rankings
+2025-06-23 17:43:43,245 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-23 17:43:43,344 - engine.src.tasks.rank_statements - INFO - Processing rankings for task: inflation
+2025-06-23 17:43:43,344 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-23 17:45:15,845 - engine.src.tasks.rank_statements - INFO - Saved 525 ranked pairs to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/ranked_pairs/inflation_level_ranked_pairs.json
+2025-06-23 17:45:15,954 - engine.src.tasks.rank_statements - INFO - Processing complete for inflation.level
+2025-06-23 17:45:15,954 - engine.src.tasks.rank_statements - INFO - Processing inflation.dynamics rankings
+2025-06-24 12:10:55,453 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 12:10:55,552 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 12:13:31,121 - engine.src.tasks.rank_statements - INFO - Saved 720 ranked pairs to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/ranked_pairs/inflation_level_ranked_pairs.json
+2025-06-24 12:13:31,127 - engine.src.tasks.rank_statements - INFO - Processing inflation.dynamics rankings
+2025-06-24 12:41:03,632 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 12:41:03,741 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 12:52:42,819 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 12:52:42,936 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 12:54:30,791 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 12:54:30,890 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 12:58:29,622 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 12:58:29,733 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 13:06:36,641 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 13:06:36,740 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 13:06:56,432 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 13:06:56,551 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-24 15:36:35,548 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-24 15:36:35,653 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings
+2025-06-26 10:26:57,778 - engine.src.tasks.rank_statements - INFO - Ranking statements for task: inflation
+2025-06-26 10:26:57,885 - engine.src.tasks.rank_statements - INFO - Processing inflation.level rankings

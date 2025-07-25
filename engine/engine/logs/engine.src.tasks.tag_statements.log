@@ -1,0 +1,5 @@
+2025-05-20 12:46:41,421 - engine.src.tasks.tag_statements - INFO - Loading data from /Users/dzz1th/Job/mgi/Soroka/data/pc_data/summarized_data.csv
+2025-05-20 12:46:41,495 - engine.src.tasks.tag_statements - INFO - Initializing StatementTagger for task: all
+2025-05-20 12:46:46,566 - engine.src.tasks.tag_statements - INFO - Starting statement tagging for 82 statements.
+2025-05-20 12:50:34,559 - engine.src.tasks.tag_statements - INFO - Saving tagged statements to /Users/dzz1th/Job/mgi/Soroka/data/pc_data/tagged_statements_all.csv
+2025-05-20 12:50:34,704 - engine.src.tasks.tag_statements - INFO - Statement tagging completed.
